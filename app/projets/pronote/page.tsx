@@ -1,5 +1,3 @@
-// pages/projets/pronote/index.tsx
-
 import React from "react";
 
 const Pronote = () => {
