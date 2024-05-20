@@ -7,16 +7,22 @@ import Navbar from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-abdelali.com/"),
   title: "Abdelali NOUREDDINE",
   description: "Portfolio By Abdelali NOUREDDINE",
-  keywords: ["Developer", "Portfolio", "Abdelali NOUREDDINE"],
+  keywords: "Developer,Portfolio,Abdelali NOUREDDINE",
   openGraph: {
     title: "Abdelali NOUREDDINE",
     description: "Etudiant en informatique",
-    images: "/OpenGraph.jpg",
     url: "https://portfolio-abdelali.com/",
+    images: "https://portfolio-abdelali.com/OpenGraph.jpg",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Abdelali NOUREDDINE",
+    description: "Etudiant en informatique",
+    images: "https://portfolio-abdelali.com/OpenGraph.jpg",
+  },
+  icons: "/favicon.ico",
 };
 
 export default function RootLayout({
