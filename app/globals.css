@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.glow-on-hover {
+  transition: box-shadow 0.5s;
+}
+
+.glow-on-hover:hover {
+  box-shadow: 0 0 10px #09f, 0 0 20px #09f, 0 0 30px #09f, 0 0 40px #09f;
+}
