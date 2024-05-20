@@ -29,7 +29,7 @@ const Experience: React.FC<{}> = () => {
               </li>
               <li className="mb-2">
                 2022–2024 - BTS SIO Option SLAM <br />
-                (Lycée Aliénor d'Aquitaine)
+                (Lycée Aliénor d&apos;Aquitaine)
               </li>
             </ul>
           </div>
@@ -38,14 +38,14 @@ const Experience: React.FC<{}> = () => {
               Expériences Professionnelles
             </h2>
             <p className="text-white-300 whitespace-normal">
-              L'un des aspects les plus enrichissants de ce BTS a été les stages
-              et les projets de groupe. Travailler en entreprise m'a permis de
-              mettre en pratique les théories apprises en classe dans des
-              situations réelles, confrontant théorie et pratique. Ces
-              expériences m'ont non seulement permis de développer mes
-              compétences techniques, mais aussi d'apprendre à travailler en
-              équipe, à communiquer efficacement et à comprendre les besoins des
-              clients.
+              L&apos;un des aspects les plus enrichissants de ce BTS a été les
+              stages et les projets de groupe. Travailler en entreprise m&apos;a
+              permis de mettre en pratique les théories apprises en classe dans
+              des situations réelles, confrontant théorie et pratique. Ces
+              expériences m&apos;ont non seulement permis de développer mes
+              compétences techniques, mais aussi d&apos;apprendre à travailler
+              en équipe, à communiquer efficacement et à comprendre les besoins
+              des clients.
             </p>
           </div>
         </div>

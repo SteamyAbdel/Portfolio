@@ -11,13 +11,13 @@ const About: React.FC<{}> = () => {
           QUI SUIS-JE ?
         </h1>
         <p className="text-white text-center mb-2 px-500 text-sm md:text-lg lg:text-xl">
-          Je m'appelle Abdelali NOUREDDINE , Je suis actuellement étudiant en
-          deuxième année de BTS Informatique Option SLAM (Solutions Logicielles
-          et Applications Métiers) Passionné par les technologies web et les
-          langages de programmation, j'ai déjà acquis des connaissances solides
-          en développement front-end et back-end, ainsi que sur les outils de
-          développement tels que Git, Visual Studio Code , PHP ou encore les
-          frameworks tels que Symfony.
+          Je m&apos;appelle Abdelali NOUREDDINE , Je suis actuellement étudiant
+          en deuxième année de BTS Informatique Option SLAM (Solutions
+          Logicielles et Applications Métiers) Passionné par les technologies
+          web et les langages de programmation, j&apos;ai déjà acquis des
+          connaissances solides en développement front-end et back-end, ainsi
+          que sur les outils de développement tels que Git, Visual Studio Code ,
+          PHP ou encore les frameworks tels que Symfony.
         </p>
       </div>
     </section>

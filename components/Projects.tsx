@@ -82,9 +82,9 @@ const Projects: React.FC<{}> = () => {
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">Android</p>
                 <p className="text-gray-500 text-[10px]">
-                  Développement d'une application en local qui ressemblerait à
-                  Pronote et utilise un système de points pour motiver les
-                  élèves.
+                  Développement d&apos;une application en local qui
+                  ressemblerait à Pronote et utilise un système de points pour
+                  motiver les élèves.
                 </p>
               </div>
             </div>
@@ -153,9 +153,10 @@ const Projects: React.FC<{}> = () => {
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">BLUE COM</p>
                 <p className="text-gray-500 text-[10px]">
-                  Ce projet a été la refonte du site vitrine de l'agence BlueCom
-                  qui comprend un back-end en Symfony et l'installation de API
-                  Platform et le front avec du NextJS.
+                  Ce projet a été la refonte du site vitrine de l&apos;agence
+                  BlueCom qui comprend un back-end en Symfony et
+                  l&apos;installation de API Platform et le front avec du
+                  NextJS.
                 </p>
               </div>
             </div>
@@ -174,7 +175,7 @@ const Projects: React.FC<{}> = () => {
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
-                  Organisation d'une cellule de crise
+                  Organisation d&apos;une cellule de crise
                 </p>
                 <p className="text-gray-500 text-[10px]">
                   Ce projet vise à créer une interface intuitive où les agents
