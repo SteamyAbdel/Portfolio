@@ -1,87 +1,89 @@
 import React from "react";
-import { useGlowEffect } from "./main/EffectExperience";
+// import { useGlowEffect } from "./main/EffectExperience";
 
 const Experience: React.FC<{}> = () => {
   return (
-    <section id="experience">
-      <h1 className="text-white font-semibold text-center text-6xl   pt-[35px]">
-        MON EXPERIENCE
-      </h1>
-      <div className=" container mx-auto 2xl ">
-        <div className="flex flex-col">
-          <div className="bg-transparent mt-5 rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] max-w-[5000 px]">
-            <h1 className="text-lg font-bold text-gray-300">Formations</h1>
-            <p className="text-gray-300">
-              • 2023-2024 : Deuxième année BTS SIO Aliénor d&apos;Aquitaine -
-              Poitiers
-              <br />
-              • 2022-2023 : Première année BTS SIO Aliénor d&apos;Aquitaine -
-              Poitiers
-              <br />
-              • 2021-2022 : Première année Licence informatique à
-              l&apos;université - Poitiers
-              <br />
-              •2019-2021 : Baccalauréat sciences et technologies du management
-              et de la gestion Lycée Saint- Jacques de Compostelle – Poitiers
-            </p>
-            <h2 className="text-md font-bold mt-4 text-gray-300">
-              Mon Expérience Pratique
+    <section
+      id="experience"
+      className="text-white bg-transparent bg-opacity-75 px-10 py-10"
+    >
+      <div className="container mx-auto p-4">
+        <h1 className="text-5xl font-bold text-white mb-8 text-center">
+          MON EXPERIENCE
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-white-800 bg-opacity-75 p-6 rounded-lg border border-white-600 min-w-0">
+            <h2 className="text-2xl font-bold text-white-300 mb-3">
+              Formations
             </h2>
-            <p className="text-gray-300">
-              L&apos;un des aspects les plus enrichissants de ce BTS a été
-              l&apos;alternance et les projets de groupe. Travailler en
-              entreprise m&apos;a permis de mettre en pratique les théories
-              apprises en classe dans des situations réelles, confrontant
-              théorie et pratique. Ces expériences m&apos;ont non seulement
-              permis de développer mes compétences techniques, mais aussi
-              d&apos;apprendre à travailler en équipe, à communiquer
-              efficacement et à comprendre les besoins des clients.
+            <ul className="list-disc list-inside text-white-300 whitespace-normal">
+              <li>
+                2019–2021 - Baccalauréat sciences et technologies du management
+                et de la gestion
+                <br />
+                (Lycée Saint-Jacques de Compostelle)
+              </li>
+              <li className="mb-2">
+                2021–2022 - L1 Informatique <br />
+                (Fac de Poitiers)
+              </li>
+              <li className="mb-2">
+                2022–2024 - BTS SIO Option SLAM <br />
+                (Lycée Aliénor d'Aquitaine)
+              </li>
+            </ul>
+          </div>
+          <div className="bg-white-800 bg-opacity-75 p-6 rounded-lg border border-white-600">
+            <h2 className="text-2xl font-bold text-white-300 mb-3">
+              Expériences Professionnelles
+            </h2>
+            <p className="text-white-300 whitespace-normal">
+              L'un des aspects les plus enrichissants de ce BTS a été les stages
+              et les projets de groupe. Travailler en entreprise m'a permis de
+              mettre en pratique les théories apprises en classe dans des
+              situations réelles, confrontant théorie et pratique. Ces
+              expériences m'ont non seulement permis de développer mes
+              compétences techniques, mais aussi d'apprendre à travailler en
+              équipe, à communiquer efficacement et à comprendre les besoins des
+              clients.
             </p>
-            <br />
-            <p className="text-gray-300">
-              Merci de votre visite et à bientôt !
-            </p>
-            <br />
-            <p className="text-right text-gray-300">Noureddine Abdelali</p>
           </div>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-10">
           <div className="flex flex-wrap">
-            {/* Première moitié des éléments */}
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
               React
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
               JavaScript
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
               PHP
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
               Android
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
               Docker
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
               Python
             </div>
           </div>
           <div className="flex flex-wrap">
-            {/* Seconde moitié des éléments */}
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
               MySQL
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
               Bootstrap
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
               Java
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
               PostGreSQL
             </div>
-            <div className="bg-transparent mt-5 cursor-pointer rounded-3xl text-white py-2 px-5 border border-[#2E2E2E] w-max">
+            <div className="bg-transparent mt-5 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
               NextJS
             </div>
           </div>

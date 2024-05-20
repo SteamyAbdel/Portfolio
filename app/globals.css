@@ -14,3 +14,35 @@
 .glow-on-hover:hover {
   box-shadow: 0 0 10px #09f, 0 0 20px #09f, 0 0 30px #09f, 0 0 40px #09f;
 }
+
+
+.hoverText {
+  transition:
+    0.35s font-weight,
+    0.35s color;
+}
+
+.hoverText:hover {
+  font-weight: 900;
+  color: rgb(17, 17, 17);
+}
+
+/* To the right */
+.hoverText:hover + .hoverText {
+  font-weight: 500;
+  color: rgb(17, 17, 17);
+}
+
+.hoverText:hover + .hoverText + .hoverText {
+  font-weight: 300;
+}
+
+/* To the left */
+.hoverText:has(+ .hoverText:hover) {
+  font-weight: 500;
+  color: rgb(17, 17, 17);
+}
+
+.hoverText:has(+ .hoverText + .hoverText:hover) {
+  font-weight: 300;
+}

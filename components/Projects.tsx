@@ -5,119 +5,214 @@ import React from "react";
 const Projects: React.FC<{}> = () => {
   return (
     <section id="projects">
-      <h1 className="text-white font-semibold text-center text-6xl pt-[35px]">
+      <h1 className="text-white text-5xl font-bold text-center mb-10">
         MES PROJETS
       </h1>
-      {/* <div className=" container mx-auto 2xl  ">
-        <div className="flex-col flex md:flex-row  mt-7">
-          <Link
-            href="https://web.hr/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1]"
-          >
-            <div className="flex-row flex mb-5">
-              <Image
-                src="/FirstProject.png"
-                height={150}
-                width={150}
-                alt="WebHR Project"
-              />
-              <div className="p-3">
-                <p className="text-white font-semibold text-xl">WebHR</p>
-                <p className="text-gray-500 text-[10px]">
-                  Designed a modern UI website comprising more than 50 screens,
-                  along with the integration of a blog using Next.js.
-                </p>
-              </div>
-            </div>
-          </Link>
-          <Link
-            href="https://hireside.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1]"
-          >
-            <div className="flex-row flex mb-5">
-              <Image
-                src="/SecondProject.png"
-                height={150}
-                width={150}
-                alt="HireSide"
-              />
-              <div className="p-3">
-                <p className="text-white font-semibold text-xl">HireSide</p>
-                <p className="text-gray-500 text-[10px]">
-                  Developed a web application on Next.js that allows users to
-                  apply for jobs, create job posts, and manage their company
-                  profiles.
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div>
-        <div className="flex-col flex md:flex-row ">
-          <Link
-            href="https://www.vergesystems.com/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1]"
-          >
-            <div className="flex-row flex mb-5">
-              <Image
-                src="/ThirdProject.png"
-                height={150}
-                width={150}
-                alt="VergeSystems"
-              />
-              <div className=" p-3 ">
-                <p className="text-white font-semibold text-xl">
-                  Verge Systems
-                </p>
-                <p className="text-gray-500 text-[10px]">
-                  Developed the Verge Systems website using React.js.
-                </p>
-              </div>
-            </div>
-          </Link>
-          <Link
-            href="http://44.201.47.75/"
-            rel="noopener noreferrer"
-            target="_blank"
-            className="z-[1]"
-          >
-            <div className="flex-row flex mb-5">
-              <Image
-                src="/FourProject.png"
-                height={150}
-                width={150}
-                alt="Payoasis"
-              />
-              <div className="p-3 ">
-                <p className="text-white font-semibold text-xl">Payoasis</p>
-                <p className="text-gray-500 text-[10px]">
-                  Designed the modern UI for a banking website utilizing Gatsby.
-                </p>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </div> */}
-
-      <div className=" container mx-auto 2xl">
-        <div className="flex-col flex md:flex-row  mt-7">
-          <div className="flex-row flex mb-5">
-            <div className="p-3">
-              <p className="text-white font-semibold text-xl">
-                🚧 En cours de travaux 🚧
-              </p>
-              <p className="text-gray-500 text-[10px]">
-                Les projets sont actuellement en cours de développement.
-              </p>
-            </div>
-          </div>
-        </div>
+      <div className="flex justify-center mt-10">
+        <a
+          href="/Tableau.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shadow-lg shadow-white z-[1] padding-20 hover:bg-white rounded-3xl text-white font-semibold hover:text-black py-3 px-10 border-[0.1px] border-white hover:border-transparent"
+        >
+          Tableau de Compétences
+        </a>
       </div>
+      <div className="container mx-auto">
+        <div className="flex-col flex md:flex-row mt-8">
+          <a className="z-[1]" href="/projets/cloud">
+            <div className="flex-row flex mb-5">
+              <Image
+                alt="Projet CLOUD"
+                loading="lazy"
+                width={150}
+                height={150}
+                className="rounded-lg"
+                src="/Cloud.png"
+              />
+              <div className="p-3">
+                <p className="text-white font-semibold text-xl">CLOUD</p>
+                <p className="text-gray-500 text-[10px]">
+                  Nous parlerons du CLOUD.
+                </p>
+              </div>
+            </div>
+          </a>
+          <a
+            className="z-[1]"
+            href="/projets/pronote"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="flex-row flex mb-5">
+              <Image
+                alt="Pronote"
+                loading="lazy"
+                width={150}
+                height={150}
+                className="rounded-lg"
+                src="/pronote.png"
+              />
+              <div className="p-3">
+                <p className="text-white font-semibold text-xl">Pronote</p>
+                <p className="text-gray-500 text-[10px]">
+                  Nous avons développé sur Symfony (PHP) une application web qui
+                  permet de...
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div className="flex-col flex md:flex-row">
+          <a
+            className="z-[1]"
+            href="/projets/android"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="flex-row flex mb-5 ml-7">
+              <Image
+                alt="Cheptel"
+                loading="lazy"
+                width={150}
+                height={150}
+                className="h-36 w-36 rounded-lg"
+                src="/Android.png"
+              />
+              <div className="p-3">
+                <p className="text-white font-semibold text-xl">Android</p>
+                <p className="text-gray-500 text-[10px]">
+                  Développement d'une application en local qui ressemblerait à
+                  Pronote et utilise un système de points pour motiver les
+                  élèves.
+                </p>
+              </div>
+            </div>
+          </a>
+          <a
+            className="z-[1]"
+            href="/enconstruction"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="flex-row flex mb-5">
+              <Image
+                alt="Docker"
+                loading="lazy"
+                width={150}
+                height={150}
+                className="rounded-lg"
+                src="/Docker.png"
+              />
+              <div className="p-3">
+                <p className="text-white font-semibold text-xl">Docker</p>
+                <p className="text-gray-500 text-[10px]">
+                  Installation et utilisation de Docker avec plusieurs exemples.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div className="flex-col flex md:flex-row mt-8">
+          <a className="z-[1]" href="/projets/chl">
+            <div className="flex-row flex mb-5">
+              <Image
+                alt="Projet CHL"
+                loading="lazy"
+                width={100}
+                height={100}
+                className="h-26 w-26 rounded-lg"
+                src="/chl.png"
+              />
+              <div className="p-3">
+                <p className="text-white font-semibold text-xl">CHL</p>
+                <p className="text-gray-500 text-[10px]">
+                  Ce projet vise à créer une interface intuitive où les agents
+                  pourront facilement proposer, voter et visualiser les
+                  disponibilités, tout en assurant la sécurité et la
+                  confidentialité des données manipulées.
+                </p>
+              </div>
+            </div>
+          </a>
+          <a
+            className="z-[1]"
+            href="https://blue-com.fr/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="flex-row flex mb-5">
+              <Image
+                alt="BlueCom"
+                loading="lazy"
+                width={150}
+                height={150}
+                className="rounded-lg"
+                src="/blue-com.svg"
+              />
+              <div className="p-3">
+                <p className="text-white font-semibold text-xl">BLUE COM</p>
+                <p className="text-gray-500 text-[10px]">
+                  Ce projet a été la refonte du site vitrine de l'agence BlueCom
+                  qui comprend un back-end en Symfony et l'installation de API
+                  Platform et le front avec du NextJS.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div className="flex-col flex md:flex-row mt-8">
+          <a className="z-[1]" href="/projets/cellule_de_crise">
+            <div className="flex-row flex mb-5">
+              <Image
+                alt="Projet CHL"
+                loading="lazy"
+                width={100}
+                height={100}
+                className="h-26 w-26 rounded-lg"
+                src="/cellule-de-crise.jpg"
+              />
+              <div className="p-3">
+                <p className="text-white font-semibold text-xl">
+                  Organisation d'une cellule de crise
+                </p>
+                <p className="text-gray-500 text-[10px]">
+                  Ce projet vise à créer une interface intuitive où les agents
+                  pourront facilement proposer, voter et visualiser les
+                  disponibilités, tout en assurant la sécurité et la
+                  confidentialité des données manipulées.
+                </p>
+              </div>
+            </div>
+          </a>
+          <a
+            className="z-[1]"
+            href="/projets/cyberattaque"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="flex-row flex mb-5">
+              <Image
+                alt="Cyberattaque"
+                loading="lazy"
+                width={150}
+                height={150}
+                className="rounded-lg"
+                src="/Hacker.png"
+              />
+              <div className="p-3">
+                <p className="text-white font-semibold text-xl">Cyberattaque</p>
+                <p className="text-gray-500 text-[10px]">
+                  Ce projet vise à créer une interface intuitive où les agents
+                  pourront facilement proposer, voter et visualiser les
+                  disponibilités, tout en assurant la sécurité et la
+                  confidentialité des données manipulées.
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>{" "}
     </section>
   );
 };
