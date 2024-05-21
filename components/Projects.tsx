@@ -10,7 +10,7 @@ const Projects: React.FC<{}> = () => {
       </h1>
       <div className="flex justify-center mt-10">
         <a
-          href="/Tableau.pdf"
+          href="/Tableau_competences.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="shadow-lg shadow-white z-[1] padding-20 hover:bg-white rounded-3xl text-white font-semibold hover:text-black py-3 px-10 border-[0.1px] border-white hover:border-transparent"
@@ -213,7 +213,7 @@ const Projects: React.FC<{}> = () => {
             </div>
           </a>
         </div>
-      </div>{" "}
+      </div>
     </section>
   );
 };
