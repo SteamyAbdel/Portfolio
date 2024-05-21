@@ -19,7 +19,7 @@ export default function Banner() {
             priority
           />
         </div>
-        <div className="flex flex-col gap-6 mt-6 cursor-pointer animate-bounce tracking-tighter text-7xl font-semibold text-white max-w-[600px] w-auto h-auto mb-6">
+        <div className="flex flex-col gap-6 mt-6 cursor-pointer animate-bounce tracking-tighter text-7xl font-bold text-white max-w-[600px] w-auto h-auto mb-6">
           <Bubbletext />
         </div>
         <div className="flex justify-center">

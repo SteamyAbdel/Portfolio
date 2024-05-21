@@ -188,7 +188,7 @@ const Projects: React.FC<{}> = () => {
           </a>
           <a
             className="z-[1]"
-            href="/projets/cyberattaque"
+            href="/projets/PCA_PRA"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -202,7 +202,7 @@ const Projects: React.FC<{}> = () => {
                 src="/Hacker.png"
               />
               <div className="p-3">
-                <p className="text-white font-semibold text-xl">Cyberattaque</p>
+                <p className="text-white font-semibold text-xl">PCA et PRA</p>
                 <p className="text-gray-500 text-[10px]">
                   Ce projet vise à créer une interface intuitive où les agents
                   pourront facilement proposer, voter et visualiser les
