@@ -19,10 +19,10 @@ const StarBackground = (props: any) => {
 
   return (
     <group rotation={[0, 0, Math.PI / 8]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
+      <Points ref={ref} positions={sphere} stride={4} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color="#fff"
+          color="white"
           size={0.002}
           sizeAttenuation={true}
           dethWrite={false}

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -20,8 +22,8 @@ const Projects: React.FC<{}> = () => {
       </div>
       <div className="container mx-auto">
         <div className="flex-col flex md:flex-row mt-8">
-          <a
-            className="z-[1]"
+          <Link
+            className="z-[1] flex-1"
             href="/projets/studentscore"
             target="_blank"
             rel="noopener noreferrer"
@@ -42,9 +44,9 @@ const Projects: React.FC<{}> = () => {
                 </p>
               </div>
             </div>
-          </a>
-          <a
-            className="z-[1]"
+          </Link>
+          <Link
+            className="z-[1] flex-1"
             href="/projets/chabis"
             target="_blank"
             rel="noopener noreferrer"
@@ -60,17 +62,17 @@ const Projects: React.FC<{}> = () => {
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">Chabis</p>
-                <p className="text-gray-500 text-[10px]">
+                <p className="text-gray-500 text-[10px] ">
                   Cette application doit permettre de gérer l&apos;ensemble des
                   chèvres de la société CHABIS, de la plus petite à la plus
                   ancienne.
                 </p>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
-        <div className="flex-col flex md:flex-row">
-          <a className="z-[1]" href="/projets/PCA_PRA">
+        <div className="flex-col flex md:flex-row mt-8">
+          <Link className="z-[1] flex-1" href="/projets/PCA_PRA">
             <div className="flex-row flex mb-5">
               <Image
                 alt="PCA et PRA"
@@ -82,7 +84,7 @@ const Projects: React.FC<{}> = () => {
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">PCA ET PRA</p>
-                <p className="text-gray-500 text-[10px]">
+                <p className="text-gray-500 text-[10px] mx-[10px]">
                   Lors de la réalisation de votre travail sur le rétablissement
                   d&apos;un service, vous avez pu remarquer l&apos;un des
                   risques du cloud : l&apos;indisponibilité imprévisible et
@@ -90,10 +92,10 @@ const Projects: React.FC<{}> = () => {
                 </p>
               </div>
             </div>
-          </a>
+          </Link>
 
-          <a
-            className="z-[1]"
+          <Link
+            className="z-[1] flex-1"
             href="/FicheProceduresDocker.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -114,10 +116,15 @@ const Projects: React.FC<{}> = () => {
                 </p>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="flex-col flex md:flex-row mt-8">
-          <a className="z-[1]" href="/projets/chl">
+          <Link
+            className="z-[1] flex-1"
+            href="/projets/chl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className="flex-row flex mb-5">
               <Image
                 alt="Projet CHL"
@@ -137,9 +144,9 @@ const Projects: React.FC<{}> = () => {
                 </p>
               </div>
             </div>
-          </a>
-          <a
-            className="z-[1]"
+          </Link>
+          <Link
+            className="z-[1] flex-1"
             href="/projets/bluecom"
             target="_blank"
             rel="noopener noreferrer"
@@ -163,10 +170,10 @@ const Projects: React.FC<{}> = () => {
                 </p>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="flex-col flex md:flex-row mt-8">
-          <a className="z-[1]" href="/projets/référencement">
+          <Link className="z-[1] flex-1" href="/projets/référencement">
             <div className="flex-row flex mb-5">
               <Image
                 alt="Projet CHL"
@@ -189,9 +196,9 @@ const Projects: React.FC<{}> = () => {
                 </p>
               </div>
             </div>
-          </a>
-          <a
-            className="z-[1]"
+          </Link>
+          <Link
+            className="z-[1] flex-1"
             href="/projets/cyber"
             target="_blank"
             rel="noopener noreferrer"
@@ -216,7 +223,7 @@ const Projects: React.FC<{}> = () => {
                 </p>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
