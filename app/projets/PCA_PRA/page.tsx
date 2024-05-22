@@ -78,7 +78,9 @@ const PcaPra = () => {
           <h2 className="text-2xl font-semibold mb-4 text-white">
             3. Notions IaaS, PaaS et SaaS :
           </h2>
-          <h3 className="text-xl font-semibold mb-4 text-white">L’IaaS:</h3>
+          <h3 className="text-xl font-semibold mb-4 text-white">
+            L&apos;IaaS:
+          </h3>
           <p className="mb-4 text-white">
             L&apos;IaaS, ou Infrastructure en tant que Service, offre une sorte
             de &quot;location virtuelle&quot; d&apos;équipements informatiques.
@@ -177,7 +179,7 @@ const PcaPra = () => {
             l&apos;interruption de service non planifiée pour les entreprises :
             <br />- 959493$ : Coût moyen de la perte de données au cours des 12
             derniers mois (en USD)
-            <br />- 513067$ : Coût moyen de l’interruption de service non
+            <br />- 513067$ : Coût moyen de l&apos;interruption de service non
             planifiée des systèmes au cours des 12 derniers mois (en USD)
             <br />
             Pour compenser ces pertes, les entreprises peuvent mettre en œuvre

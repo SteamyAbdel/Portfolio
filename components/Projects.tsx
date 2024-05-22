@@ -84,9 +84,9 @@ const Projects: React.FC<{}> = () => {
                 <p className="text-white font-semibold text-xl">PCA ET PRA</p>
                 <p className="text-gray-500 text-[10px]">
                   Lors de la réalisation de votre travail sur le rétablissement
-                  d’un service, vous avez pu remarquer l’un des risques du cloud
-                  : l’indisponibilité imprévisible et incontrôlable d’un service
-                  informatique.
+                  d&apos;un service, vous avez pu remarquer l&apos;un des
+                  risques du cloud : l&apos;indisponibilité imprévisible et
+                  incontrôlable d&apos;un service informatique.
                 </p>
               </div>
             </div>
@@ -181,11 +181,11 @@ const Projects: React.FC<{}> = () => {
                   Référencement
                 </p>
                 <p className="text-gray-500 text-[10px]">
-                  L’entreprise reçoit un nouveau client dont le domaine
-                  d’activité est la vente d’ouvrages liés à la permaculture. Il
-                  souhaite que son site Internet soit le mieux référencé
-                  possible sur les moteurs de recherches tels que Google, ou
-                  Bing.
+                  L&apos;entreprise reçoit un nouveau client dont le domaine
+                  d&apos;activité est la vente d&apos;ouvrages liés à la
+                  permaculture. Il souhaite que son site Internet soit le mieux
+                  référencé possible sur les moteurs de recherches tels que
+                  Google, ou Bing.
                 </p>
               </div>
             </div>
@@ -208,11 +208,11 @@ const Projects: React.FC<{}> = () => {
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">Cyberattaque</p>
                 <p className="text-gray-500 text-[10px]">
-                  Le serveur de l’entreprise OmniWeb a subi une cyberattaque
-                  d’une ampleur inédite, un vendredi à 17 heures. Après
-                  évaluation des dégâts, le choix est fait de réinstaller
-                  l’intégralité des services sur le serveur de secours, en
-                  partant de 0.
+                  Le serveur de l&apos;entreprise OmniWeb a subi une
+                  cyberattaque d&apos;une ampleur inédite, un vendredi à 17
+                  heures. Après évaluation des dégâts, le choix est fait de
+                  réinstaller l&apos;intégralité des services sur le serveur de
+                  secours, en partant de 0.
                 </p>
               </div>
             </div>
