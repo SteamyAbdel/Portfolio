@@ -12,7 +12,7 @@ const PcaPra = () => {
       </Head>
       <div className="bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg p-10 min-h-screen rounded-lg shadow-lg max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-8 text-white">
-          Présentation du projet dans le stage de première année
+          Présentation du projet dans le stage de deuxième année
         </h1>
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-white mb-4">

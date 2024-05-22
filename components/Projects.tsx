@@ -20,33 +20,15 @@ const Projects: React.FC<{}> = () => {
       </div>
       <div className="container mx-auto">
         <div className="flex-col flex md:flex-row mt-8">
-          <a className="z-[1]" href="/projets/cloud">
-            <div className="flex-row flex mb-5">
-              <Image
-                alt="Projet CLOUD"
-                loading="lazy"
-                width={150}
-                height={150}
-                className="rounded-lg"
-                src="/Cloud.png"
-              />
-              <div className="p-3">
-                <p className="text-white font-semibold text-xl">CLOUD</p>
-                <p className="text-gray-500 text-[10px]">
-                  Nous parlerons du CLOUD.
-                </p>
-              </div>
-            </div>
-          </a>
           <a
             className="z-[1]"
-            href="/projets/pronote"
+            href="/projets/studentscore"
             target="_blank"
             rel="noopener noreferrer"
           >
             <div className="flex-row flex mb-5">
               <Image
-                alt="Pronote"
+                alt="StudentScore"
                 loading="lazy"
                 width={150}
                 height={150}
@@ -54,44 +36,65 @@ const Projects: React.FC<{}> = () => {
                 src="/pronote.png"
               />
               <div className="p-3">
-                <p className="text-white font-semibold text-xl">Pronote</p>
+                <p className="text-white font-semibold text-xl">StudentScore</p>
                 <p className="text-gray-500 text-[10px]">
-                  Nous avons développé sur Symfony (PHP) une application web qui
-                  permet de...
+                  Application de gestion de notes avec système de récompenses
+                </p>
+              </div>
+            </div>
+          </a>
+          <a
+            className="z-[1]"
+            href="/projets/chabis"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="flex-row flex mb-5 ml-7">
+              <Image
+                alt="Chabis"
+                loading="lazy"
+                width={150}
+                height={150}
+                className="h-36 w-36 rounded-lg"
+                src="/php.png"
+              />
+              <div className="p-3">
+                <p className="text-white font-semibold text-xl">Chabis</p>
+                <p className="text-gray-500 text-[10px]">
+                  Cette application doit permettre de gérer l&apos;ensemble des
+                  chèvres de la société CHABIS, de la plus petite à la plus
+                  ancienne.
                 </p>
               </div>
             </div>
           </a>
         </div>
         <div className="flex-col flex md:flex-row">
-          <a
-            className="z-[1]"
-            href="/projets/android"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="flex-row flex mb-5 ml-7">
+          <a className="z-[1]" href="/projets/PCA_PRA">
+            <div className="flex-row flex mb-5">
               <Image
-                alt="Cheptel"
+                alt="PCA et PRA"
                 loading="lazy"
                 width={150}
                 height={150}
-                className="h-36 w-36 rounded-lg"
-                src="/Android.png"
+                className="rounded-lg"
+                src="/pcaPra.png"
               />
               <div className="p-3">
-                <p className="text-white font-semibold text-xl">Android</p>
+                <p className="text-white font-semibold text-xl">PCA ET PRA</p>
                 <p className="text-gray-500 text-[10px]">
-                  Développement d&apos;une application en local qui
-                  ressemblerait à Pronote et utilise un système de points pour
-                  motiver les élèves.
+                  Lors de la réalisation de votre travail sur le rétablissement
+                  d’un service, vous avez pu remarquer l’un des risques du cloud
+                  : l’indisponibilité imprévisible et incontrôlable d’un service
+                  informatique.
                 </p>
               </div>
             </div>
           </a>
+
           <a
             className="z-[1]"
-            href="/enconstruction"
+            href="/FicheProceduresDocker.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -137,7 +140,7 @@ const Projects: React.FC<{}> = () => {
           </a>
           <a
             className="z-[1]"
-            href="https://blue-com.fr/"
+            href="/projets/bluecom"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -163,7 +166,7 @@ const Projects: React.FC<{}> = () => {
           </a>
         </div>
         <div className="flex-col flex md:flex-row mt-8">
-          <a className="z-[1]" href="/projets/cellule_de_crise">
+          <a className="z-[1]" href="/projets/référencement">
             <div className="flex-row flex mb-5">
               <Image
                 alt="Projet CHL"
@@ -171,24 +174,25 @@ const Projects: React.FC<{}> = () => {
                 width={100}
                 height={100}
                 className="h-26 w-26 rounded-lg"
-                src="/cellule-de-crise.jpg"
+                src="/ref.webp"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
-                  Organisation d&apos;une cellule de crise
+                  Référencement
                 </p>
                 <p className="text-gray-500 text-[10px]">
-                  Ce projet vise à créer une interface intuitive où les agents
-                  pourront facilement proposer, voter et visualiser les
-                  disponibilités, tout en assurant la sécurité et la
-                  confidentialité des données manipulées.
+                  L’entreprise reçoit un nouveau client dont le domaine
+                  d’activité est la vente d’ouvrages liés à la permaculture. Il
+                  souhaite que son site Internet soit le mieux référencé
+                  possible sur les moteurs de recherches tels que Google, ou
+                  Bing.
                 </p>
               </div>
             </div>
           </a>
           <a
             className="z-[1]"
-            href="/projets/PCA_PRA"
+            href="/projets/cyber"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -202,12 +206,13 @@ const Projects: React.FC<{}> = () => {
                 src="/Hacker.png"
               />
               <div className="p-3">
-                <p className="text-white font-semibold text-xl">PCA et PRA</p>
+                <p className="text-white font-semibold text-xl">Cyberattaque</p>
                 <p className="text-gray-500 text-[10px]">
-                  Ce projet vise à créer une interface intuitive où les agents
-                  pourront facilement proposer, voter et visualiser les
-                  disponibilités, tout en assurant la sécurité et la
-                  confidentialité des données manipulées.
+                  Le serveur de l’entreprise OmniWeb a subi une cyberattaque
+                  d’une ampleur inédite, un vendredi à 17 heures. Après
+                  évaluation des dégâts, le choix est fait de réinstaller
+                  l’intégralité des services sur le serveur de secours, en
+                  partant de 0.
                 </p>
               </div>
             </div>

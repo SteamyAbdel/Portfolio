@@ -14,7 +14,6 @@ const PcaPra = () => {
         <h1 className="text-3xl font-bold text-center mb-8 text-white">
           Présentation de la Mise en place de PCA et PRA
         </h1>
-
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-white mb-4">
             1. Différenciation entre cloud privé et cloud public :
@@ -34,7 +33,6 @@ const PcaPra = () => {
             espace rapidement.
           </p>
         </section>
-
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 text-white">
             CLOUD PUBLIC :
