@@ -3,7 +3,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
-const imgs = ["/pix.png", "/anssi.png"];
+const imgs = ["/certif/pix.png", "/certif/mooc.png", "/certif/classroom.png"];
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;

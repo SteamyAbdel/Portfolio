@@ -35,7 +35,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/pronote.png"
+                src="/projets/pronote.png"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -60,7 +60,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/php.png"
+                src="/projets/php.png"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -89,7 +89,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/pcaPra.png"
+                src="/projets/pcaPra.png"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -118,7 +118,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/Docker.png"
+                src="/projets/Docker.png"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -145,7 +145,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-26 w-26 rounded-lg"
-                src="/chl.png"
+                src="/projets/chl.png"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -173,7 +173,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/blue-com.svg"
+                src="/projets/blue-com.svg"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -203,7 +203,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/ref.webp"
+                src="/projets/ref.webp"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -232,7 +232,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-30 w-36 rounded-lg"
-                src="/Hacker.png"
+                src="/projets/Hacker.png"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -263,7 +263,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/wordpress.png"
+                src="/projets/wordpress.png"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -292,7 +292,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-30 w-36 rounded-lg"
-                src="/robots.webp"
+                src="/projets/robots.webp"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -323,18 +323,14 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/portfolio.webp"
+                src="/projets/portfolio.webp"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
                   Portfolio (C3, C5)
                 </p>
-                <p className="text-gray-500 text-[10px]">
-                  L&apos;entreprise reçoit un nouveau client dont le domaine
-                  d&apos;activité est la vente d&apos;ouvrages liés à la
-                  permaculture. Il souhaite que son site Internet soit le mieux
-                  référencé possible sur les moteurs de recherches tels que
-                  Google, ou Bing.
+                <p className="text-gray-500 text-[15px]">
+                  Ici c'est mon portfolio 😜
                 </p>
               </div>
             </div>
@@ -347,23 +343,20 @@ const Projects: React.FC<{}> = () => {
           >
             <div className="flex-row flex mb-5">
               <Image
-                alt="Robot"
+                alt="Veille"
                 loading="lazy"
                 width={150}
                 height={150}
                 className="h-30 w-36 rounded-lg"
-                src="/veille.png"
+                src="/projets/veille.png"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
-                  Veille informatique (C5)
+                  Veille Technologique (C5)
                 </p>
                 <p className="text-gray-500 text-[10px]">
-                  Le serveur de l&apos;entreprise OmniWeb a subi une
-                  cyberattaque d&apos;une ampleur inédite, un vendredi à 17
-                  heures. Après évaluation des dégâts, le choix est fait de
-                  réinstaller l&apos;intégralité des services sur le serveur de
-                  secours, en partant de 0.
+                  Ici ma technique pour la veille technologique choisi par moi
+                  même
                 </p>
               </div>
             </div>
