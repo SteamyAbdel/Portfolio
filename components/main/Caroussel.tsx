@@ -16,8 +16,29 @@ const SPRING_OPTIONS = {
   damping: 50,
 };
 
+const Modal = ({
+  imgSrc,
+  onClose,
+}: {
+  imgSrc: string;
+  onClose: () => void;
+}) => {
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center">
+      <div className="relative bg-white rounded-lg p-4">
+        <button onClick={onClose} className="absolute top-2 right-2 text-black">
+          X
+        </button>
+        <img src={imgSrc} alt="Modal" className="max-w-full max-h-screen" />
+      </div>
+    </div>
+  );
+};
+
 export default function SwipeCarousel() {
   const [imgIndex, setImgIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImg, setSelectedImg] = useState<string | null>(null);
 
   const dragX = useMotionValue(0);
 
@@ -48,6 +69,16 @@ export default function SwipeCarousel() {
     }
   };
 
+  const openModal = (imgSrc: string) => {
+    setSelectedImg(imgSrc);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedImg(null);
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="relative overflow-hidden bg-neutral-950 py-8 w-3/4 mx-auto">
       <motion.div
@@ -66,16 +97,26 @@ export default function SwipeCarousel() {
         onDragEnd={onDragEnd}
         className="flex cursor-grab items-center active:cursor-grabbing"
       >
-        <Images imgIndex={imgIndex} />
+        <Images imgIndex={imgIndex} openModal={openModal} />
       </motion.div>
 
       <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
       <GradientEdges />
+
+      {isModalOpen && selectedImg && (
+        <Modal imgSrc={selectedImg} onClose={closeModal} />
+      )}
     </div>
   );
 }
 
-const Images = ({ imgIndex }: { imgIndex: number }) => {
+const Images = ({
+  imgIndex,
+  openModal,
+}: {
+  imgIndex: number;
+  openModal: (imgSrc: string) => void;
+}) => {
   return (
     <>
       {imgs.map((imgSrc, idx) => {
@@ -92,7 +133,8 @@ const Images = ({ imgIndex }: { imgIndex: number }) => {
               scale: imgIndex === idx ? 0.95 : 0.85,
             }}
             transition={SPRING_OPTIONS}
-            className="aspect-video w-full shrink-0 rounded-xl bg-neutral-800 object-cover" // Mise à jour ici
+            className="aspect-video w-full shrink-0 rounded-xl bg-neutral-800 object-cover"
+            onClick={() => openModal(imgSrc)}
           />
         );
       })}

@@ -312,18 +312,18 @@ const Projects: React.FC<{}> = () => {
         <div className="flex-col flex md:flex-row mt-8">
           <Link
             className="z-[1] flex-1"
-            href="/Wordpress.pdf"
+            href="https://portfolio-abdelali.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <div className="flex-row flex mb-5">
               <Image
-                alt="WordPresse"
+                alt="Portfolio"
                 loading="lazy"
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/wordpress.png"
+                src="/portfolio.webp"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -341,7 +341,7 @@ const Projects: React.FC<{}> = () => {
           </Link>
           <Link
             className="z-[1] flex-1"
-            href="/Robots.pdf"
+            href="/projets/veille"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -352,7 +352,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-30 w-36 rounded-lg"
-                src="/robots.webp"
+                src="/veille.png"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
