@@ -1,6 +1,6 @@
 "use client";
 
-const PcaPra = () => {
+const Veille = () => {
   return (
     <>
       <div className="bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg p-10 min-h-screen rounded-lg shadow-lg max-w-7xl mx-auto">
@@ -16,11 +16,11 @@ const PcaPra = () => {
             à surveiller les évolutions techniques, les innovations dans un
             secteur d&apos;activité donnée. La veille technologique comprend
             notamment la surveillance, la collecte, le partage et la diffusion
-            d&apos;information permettant d&apos;anticiper ou de s&apos;informer sur des
-            changements en matière de recherche, développement, brevet,
+            d&apos;information permettant d&apos;anticiper ou de s&apos;informer
+            sur des changements en matière de recherche, développement, brevet,
             lancement de nouveaux produits, matériaux, processus, concepts,
-            innovation de fabrication, etc…. Cela a pour but d&apos;évaluer l&apos;impact
-            sur l&apos;environnement et l&apos;organisation.
+            innovation de fabrication, etc…. Cela a pour but d&apos;évaluer
+            l&apos;impact sur l&apos;environnement et l&apos;organisation.
           </p>
           <h3 className="text-xl font-semibold text-white mb-4">
             Sujets de la veille technologique :
@@ -68,4 +68,4 @@ const PcaPra = () => {
   );
 };
 
-export default PcaPra;
+export default Veille;

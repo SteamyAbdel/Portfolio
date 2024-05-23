@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 
-const PcaPra = () => {
+const CHL = () => {
   return (
     <>
       <Head>
@@ -40,4 +40,4 @@ const PcaPra = () => {
   );
 };
 
-export default PcaPra;
+export default CHL;
