@@ -1,8 +1,14 @@
 "use client";
 
-import Link from "next/link";
+const Chabis = () => {
+  const openPDF = () => {
+    window.open(
+      "/chabis/CahierdeschargesChabis.pdf",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
 
-const PcaPra = () => {
   return (
     <>
       <div className="bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg p-10 min-h-screen rounded-lg shadow-lg max-w-7xl mx-auto">
@@ -22,36 +28,16 @@ const PcaPra = () => {
             des chèvres de la société CHABIS, de la plus petite à la plus
             ancienne.
           </p>
-          <img
-            alt="StudentScore"
-            loading="lazy"
-            width={150}
-            height={150}
-            className="rounded-lg"
-            src="/chabis/UML.jpg"
-          />
-          <div className="flex-row flex mb-5 mr-10 border">
-            <Link
-              className="z-[1] flex-1"
-              href="/projets/studentscore"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                alt="StudentScore"
-                loading="lazy"
-                width={150}
-                height={150}
-                className="h-36 w-36 rounded-lg"
-                src="/projets/pronote.png"
-              />
-            </Link>
-            <button></button>
-          </div>
+          <button
+            onClick={openPDF}
+            className="px-4 py-2 bg-black text-white rounded-lg shadow-lg hover:bg-gray"
+          >
+            Cahier des charges
+          </button>
         </section>
       </div>
     </>
   );
 };
 
-export default PcaPra;
+export default Chabis;
