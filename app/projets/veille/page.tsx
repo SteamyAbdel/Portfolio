@@ -9,7 +9,7 @@ const Veille = () => {
         </h1>
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-white mb-4">
-            Qu'est-ce que la veille technologique ?
+            Qu&apos;est-ce que la veille technologique ?
           </h2>
           <p className="mb-4 text-white">
             La veille technologique, élément de la veille stratégique, consiste
@@ -33,7 +33,7 @@ const Veille = () => {
             Les implants neuronaux
           </p>
           <h2 className="text-2xl font-semibold text-white mb-4">
-            Suivi d'informations de la veille technologique
+            Suivi d&apos;informations de la veille technologique
           </h2>
           <p className="text-xl mb-4 text-white text-center ">Google Alert</p>
           <p className="text-lg mb-4 text-white">Mots clés utilisé :</p>
