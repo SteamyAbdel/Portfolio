@@ -14,13 +14,13 @@ const PcaPra = () => {
           <p className="mb-4 text-white">
             La veille technologique, élément de la veille stratégique, consiste
             à surveiller les évolutions techniques, les innovations dans un
-            secteur d’activité donnée. La veille technologique comprend
+            secteur d&apos;activité donnée. La veille technologique comprend
             notamment la surveillance, la collecte, le partage et la diffusion
-            d’information permettant d’anticiper ou de s’informer sur des
+            d&apos;information permettant d&apos;anticiper ou de s&apos;informer sur des
             changements en matière de recherche, développement, brevet,
             lancement de nouveaux produits, matériaux, processus, concepts,
-            innovation de fabrication, etc…. Cela a pour but d’évaluer l’impact
-            sur l’environnement et l’organisation.
+            innovation de fabrication, etc…. Cela a pour but d&apos;évaluer l&apos;impact
+            sur l&apos;environnement et l&apos;organisation.
           </p>
           <h3 className="text-xl font-semibold text-white mb-4">
             Sujets de la veille technologique :
