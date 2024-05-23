@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import SwipeCarousel from "./main/Caroussel";
 
-export default function SwipeCarousel() {
+export default function Certif() {
   return (
     <section
       id="certifications"
@@ -12,6 +13,7 @@ export default function SwipeCarousel() {
         <h1 className="text-5xl font-bold text-white mb-8 text-center">
           CERTIFICATIONS
         </h1>
+        <SwipeCarousel />
       </div>
     </section>
   );
