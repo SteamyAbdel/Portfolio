@@ -22,6 +22,14 @@ const PcaPra = () => {
             des chèvres de la société CHABIS, de la plus petite à la plus
             ancienne.
           </p>
+          <img
+            alt="StudentScore"
+            loading="lazy"
+            width={150}
+            height={150}
+            className="rounded-lg"
+            src="/chabis/UML.jpg"
+          />
           <div className="flex-row flex mb-5 mr-10 border">
             <Link
               className="z-[1] flex-1"
@@ -35,9 +43,10 @@ const PcaPra = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/pronote.png"
+                src="/projets/pronote.png"
               />
             </Link>
+            <button></button>
           </div>
         </section>
       </div>

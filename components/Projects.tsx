@@ -330,7 +330,7 @@ const Projects: React.FC<{}> = () => {
                   Portfolio (C3, C5)
                 </p>
                 <p className="text-gray-500 text-[15px]">
-                  Ici c'est mon portfolio 😜
+                  Ici c&apos;est mon portfolio 😜
                 </p>
               </div>
             </div>
