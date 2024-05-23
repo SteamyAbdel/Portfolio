@@ -131,7 +131,7 @@ const Projects: React.FC<{}> = () => {
             </div>
           </Link>
         </div>
-        <div className="flex-row flex mb-5">
+        <div className="flex-col flex md:flex-row mt-8">
           <Link
             className="z-[1] flex-1"
             href="/projets/chl"
