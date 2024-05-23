@@ -192,7 +192,7 @@ const Projects: React.FC<{}> = () => {
         <div className="flex-col flex md:flex-row mt-8">
           <Link
             className="z-[1] flex-1"
-            href="/referencement.pdf"
+            href="/Referencement.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -296,7 +296,7 @@ const Projects: React.FC<{}> = () => {
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
-                  Veille informatique (C5)
+                  Robots.txt (C5)
                 </p>
                 <p className="text-gray-500 text-[10px]">
                   Le serveur de l&apos;entreprise OmniWeb a subi une
@@ -356,7 +356,7 @@ const Projects: React.FC<{}> = () => {
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
-                  Robot.txt (C5)
+                  Veille informatique (C5)
                 </p>
                 <p className="text-gray-500 text-[10px]">
                   Le serveur de l&apos;entreprise OmniWeb a subi une
