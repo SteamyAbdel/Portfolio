@@ -34,7 +34,7 @@ const Projects: React.FC<{}> = () => {
                 loading="lazy"
                 width={150}
                 height={150}
-                className="rounded-lg"
+                className="h-36 w-36 rounded-lg"
                 src="/pronote.png"
               />
               <div className="p-3">
@@ -51,7 +51,7 @@ const Projects: React.FC<{}> = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="flex-row flex mb-5 ml-7">
+            <div className="flex-row flex mb-5">
               <Image
                 alt="Chabis"
                 loading="lazy"
@@ -79,7 +79,7 @@ const Projects: React.FC<{}> = () => {
                 loading="lazy"
                 width={150}
                 height={150}
-                className="rounded-lg"
+                className="h-36 w-36 rounded-lg"
                 src="/pcaPra.png"
               />
               <div className="p-3">
@@ -106,7 +106,7 @@ const Projects: React.FC<{}> = () => {
                 loading="lazy"
                 width={150}
                 height={150}
-                className="rounded-lg"
+                className="h-36 w-36 rounded-lg"
                 src="/Docker.png"
               />
               <div className="p-3">
@@ -118,7 +118,7 @@ const Projects: React.FC<{}> = () => {
             </div>
           </Link>
         </div>
-        <div className="flex-col flex md:flex-row mt-8">
+        <div className="flex-row flex mb-5">
           <Link
             className="z-[1] flex-1"
             href="/projets/chl"
@@ -129,8 +129,8 @@ const Projects: React.FC<{}> = () => {
               <Image
                 alt="Projet CHL"
                 loading="lazy"
-                width={100}
-                height={100}
+                width={150}
+                height={150}
                 className="h-26 w-26 rounded-lg"
                 src="/chl.png"
               />
@@ -157,7 +157,7 @@ const Projects: React.FC<{}> = () => {
                 loading="lazy"
                 width={150}
                 height={150}
-                className="rounded-lg"
+                className="h-36 w-36 rounded-lg"
                 src="/blue-com.svg"
               />
               <div className="p-3">
@@ -178,9 +178,9 @@ const Projects: React.FC<{}> = () => {
               <Image
                 alt="Projet CHL"
                 loading="lazy"
-                width={100}
-                height={100}
-                className="h-26 w-26 rounded-lg"
+                width={150}
+                height={150}
+                className="h-36 w-36 rounded-lg"
                 src="/ref.webp"
               />
               <div className="p-3">
@@ -209,7 +209,7 @@ const Projects: React.FC<{}> = () => {
                 loading="lazy"
                 width={150}
                 height={150}
-                className="rounded-lg"
+                className="h-30 w-36 rounded-lg"
                 src="/Hacker.png"
               />
               <div className="p-3">
