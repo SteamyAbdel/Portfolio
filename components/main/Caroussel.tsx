@@ -23,9 +23,29 @@ const Modal = ({
   imgSrc: string;
   onClose: () => void;
 }) => {
+  useEffect(() => {
+    // Ajouter la classe overflow-hidden sur le body quand le modal est ouvert
+    document.body.classList.add("overflow-hidden");
+
+    // Retirer la classe overflow-hidden quand le modal est fermé
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
+
+  const handleModalClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Empêcher la propagation des clics
+  };
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center">
-      <div className="relative bg-white rounded-lg p-4">
+    <div
+      className="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center"
+      onClick={onClose}
+    >
+      <div
+        className="relative bg-white rounded-lg p-4"
+        onClick={handleModalClick}
+      >
         <button onClick={onClose} className="absolute top-2 right-2 text-black">
           X
         </button>
@@ -80,7 +100,7 @@ export default function SwipeCarousel() {
   };
 
   return (
-    <div className="relative overflow-hidden bg-neutral-950 py-8 w-3/4 mx-auto">
+    <div className="relative overflow-hidden bg-neutral-950 py-8 w-3/4 mx-auto z-10">
       <motion.div
         drag="x"
         dragConstraints={{
