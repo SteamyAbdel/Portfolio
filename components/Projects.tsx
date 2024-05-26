@@ -79,7 +79,7 @@ const Projects: React.FC<{}> = () => {
         <div className="flex-col flex md:flex-row mt-8">
           <Link
             className="z-[1] flex-1"
-            href="/PRAPCA.PDF"
+            href="/PRAPCA.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -90,7 +90,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/projets/PRAPCA.pdf"
+                src="/projets/pcaPra.png"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
