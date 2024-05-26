@@ -90,7 +90,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/projets/pcaPra.png"
+                src="/projets/PRAPCA.pdf"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
