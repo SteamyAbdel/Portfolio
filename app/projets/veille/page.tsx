@@ -62,6 +62,9 @@ const Veille = () => {
           <h2 className="text-2xl font-semibold text-white mb-4">
             Comment sont traitées les informations ?
           </h2>
+          <img src="/veille/1.png" alt="Veille 1" className="mb-4 max-w-3xl" />
+          <img src="/veille/2.png" alt="Veille 2" className="mb-4 max-w-3xl" />
+          <img src="/veille/3.png" alt="Veille 3" className="mb-4 max-w-3xl" />
         </section>
       </div>
     </>

@@ -35,7 +35,7 @@ const Projects: React.FC<{}> = () => {
                 width={150}
                 height={150}
                 className="h-36 w-36 rounded-lg"
-                src="/projets/pronote.png"
+                src="/projets/StudentScore.png"
               />
               <div className="p-3">
                 <p className="text-white font-semibold text-xl">
@@ -43,6 +43,7 @@ const Projects: React.FC<{}> = () => {
                 </p>
                 <p className="text-gray-500 text-[10px]">
                   Application de gestion de notes avec système de récompenses
+                  faite sous Androïd avec Android Studio
                 </p>
               </div>
             </div>
@@ -78,7 +79,7 @@ const Projects: React.FC<{}> = () => {
         <div className="flex-col flex md:flex-row mt-8">
           <Link
             className="z-[1] flex-1"
-            href="/projets/PCA_PRA"
+            href="/PRAPCA.PDF"
             target="_blank"
             rel="noopener noreferrer"
           >

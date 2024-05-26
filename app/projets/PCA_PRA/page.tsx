@@ -5,13 +5,6 @@ import Head from "next/head";
 const PcaPra = () => {
   return (
     <>
-      <Head>
-        <title>Présentation PCA & PRA</title>
-        <meta
-          name="description"
-          content="Présentation de la mise en place de PCA et PRA pour le BTS SIO."
-        />
-      </Head>
       <div className="bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg p-2 min-h-screen rounded-lg shadow-lg max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-8 text-white">
           Présentation de la Mise en place de PCA et PRA
