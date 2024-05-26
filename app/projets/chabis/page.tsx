@@ -57,8 +57,10 @@ const Chabis = () => {
           />
           <button
             onClick={() =>
-              (window.location.href =
-                "https://gitea.btssio-poitiers.fr/chabis_3/chabis_Project_3")
+              window.open(
+                "https://gitea.btssio-poitiers.fr/chabis_3/chabis_Project_3",
+                "_blank"
+              )
             }
             className="px-4 py-2 bg-black text-white rounded-lg shadow-lg hover:bg-gray-700 mb-4"
           >

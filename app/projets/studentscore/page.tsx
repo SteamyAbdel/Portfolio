@@ -53,7 +53,9 @@ const StudentScore = () => {
                 Tri par matière: Possibilité de trier et filtrer les devoirs en
                 fonction des matières.
               </li>
-              <li>Vue d&apos;ensemble des devoirs à venir pour chaque matière.</li>
+              <li>
+                Vue d&apos;ensemble des devoirs à venir pour chaque matière.
+              </li>
               <li>Ajout de dates d&apos;échéance pour chaque devoir.</li>
               <li>
                 Attribution de priorités aux devoirs pour aider les élèves à
@@ -65,7 +67,9 @@ const StudentScore = () => {
             </p>
             <ul className="list-inside list-disc mb-4 text-white">
               <li>Saisie des notes obtenues dans chaque matière.</li>
-              <li>Visualisation de l&apos;évolution des notes au fil du temps.</li>
+              <li>
+                Visualisation de l&apos;évolution des notes au fil du temps.
+              </li>
               <li>
                 Système de calcul automatique des moyennes par matière et
                 globalement.
@@ -79,8 +83,8 @@ const StudentScore = () => {
             </p>
             <ul className="list-inside list-disc mb-4 text-white">
               <li>
-                Liste des matières enseignées avec la possibilité d&apos;ajouter de
-                nouvelles matières.
+                Liste des matières enseignées avec la possibilité d&apos;ajouter
+                de nouvelles matières.
               </li>
             </ul>
             <p>
@@ -122,8 +126,10 @@ const StudentScore = () => {
           <img src="/student/2.JPG" alt="student 2" className="mb-4 max-w-lg" />
           <button
             onClick={() =>
-              (window.location.href =
-                "https://gitea.btssio-poitiers.fr/ANDROID_P3_TEAM/ANDROID_P3_NOTE")
+              window.open(
+                "https://gitea.btssio-poitiers.fr/ANDROID_P3_TEAM/ANDROID_P3_NOTE",
+                "_blank"
+              )
             }
             className="px-4 py-2 bg-black text-white rounded-lg shadow-lg hover:bg-gray-700 mb-4"
           >
