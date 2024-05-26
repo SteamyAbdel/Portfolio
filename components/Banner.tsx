@@ -33,7 +33,9 @@ export default function Banner() {
         </div>
         <div className="pb-12 text-md flex justify-center gap-8 mb-12">
           <button
-            onClick={() => window.open("mailto:ibrahimmemon930@gmail.com")}
+            onClick={() =>
+              window.open("mailto:abdelali.noureddine86@gmail.com")
+            }
             className="shadow-lg shadow-white z-[1] padding-20  hover:bg-white rounded-3xl text-white font-semibold hover:text-black py-3 px-10 border-[0.1px] border-white hover:border-transparent "
           >
             Me contacter
