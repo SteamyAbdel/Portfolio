@@ -16,7 +16,7 @@ const CHL = () => {
         </h1>
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-white mb-4">
-            Description du projet&apos;
+            Description du projet
           </h2>
           <button
             onClick={openPDF}

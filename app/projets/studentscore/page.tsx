@@ -19,7 +19,7 @@ const StudentScore = () => {
           </h3>
           <p className="mb-4 text-white">
             Nous travaillons dans une ESN. Pour un de nos clients, la société va
-            réaliser une application mobile destinée aux élèves afin qu’ils
+            réaliser une application mobile destinée aux élèves afin qu&apos;ils
             puissent gérer leur calendrier de devoirs ainsi que leurs notes
             obtenues aux évaluations. Cette application vise à offrir une
             gestion efficace et intuitive des devoirs et des notes, facilitant
