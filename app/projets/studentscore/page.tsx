@@ -9,21 +9,11 @@ const StudentScore = () => {
 
   return (
     <>
-      <Head>
-        <title>Présentation PCA & PRA</title>
-        <meta
-          name="description"
-          content="Présentation de la mise en place de PCA et PRA pour le BTS SIO."
-        />
-      </Head>
       <div className="bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg p-10 min-h-screen rounded-lg shadow-lg max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-8 text-white">
           Deuxième projet de groupe (StudentScore)
         </h1>
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-white mb-4">
-            1. Différenciation entre cloud privé et cloud public :
-          </h2>
           <h3 className="text-xl font-semibold text-white mb-4">
             Présentation et objectif :
           </h3>

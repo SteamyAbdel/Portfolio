@@ -43,7 +43,7 @@ const Projects: React.FC<{}> = () => {
                 </p>
                 <p className="text-gray-500 text-[10px]">
                   Application de gestion de notes avec système de récompenses
-                  faite sous Androïd avec Android Studio
+                  faite sous Androïd avec Android Studio.
                 </p>
               </div>
             </div>
