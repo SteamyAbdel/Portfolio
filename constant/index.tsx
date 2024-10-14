@@ -14,9 +14,9 @@ export const Social_Icons = [
     image: "/LinkedIn.svg",
     alt: "LinkedIn",
   },
-  {
-    link: "https://x.com/AbdelNRD",
-    image: "/Twitter.svg",
-    alt: "Twitter",
-  },
+  // {
+  //   link: "https://x.com/AbdelNRD",
+  //   image: "/Twitter.svg",
+  //   alt: "Twitter",
+  // },
 ];
