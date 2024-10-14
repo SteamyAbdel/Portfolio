@@ -20,7 +20,7 @@
     "@react-three/drei": "^9.92.1",
     "@react-three/fiber": "^8.15.12",
     "@types/node": "^20",
-    "@types/react": "^18.3.2",
+    "@types/react": "^18.3.11",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
