@@ -10,7 +10,7 @@ const Projects: React.FC<{}> = () => {
       <h1 className="text-white text-5xl font-bold text-center mb-10">
         MES PROJETS
       </h1>
-      <div className="flex justify-center mt-10">
+      {/* <div className="flex justify-center mt-10">
         <a
           href="/Tableau_competences.pdf"
           target="_blank"
@@ -19,7 +19,7 @@ const Projects: React.FC<{}> = () => {
         >
           Tableau de Compétences
         </a>
-      </div>
+      </div> */}
       <div className="container mx-auto">
         <div className="flex-col flex md:flex-row mt-8">
           <Link
@@ -76,7 +76,7 @@ const Projects: React.FC<{}> = () => {
             </div>
           </Link>
         </div>
-        <div className="flex-col flex md:flex-row mt-8">
+        {/* <div className="flex-col flex md:flex-row mt-8">
           <Link
             className="z-[1] flex-1"
             href="/PRAPCA.pdf"
@@ -131,7 +131,7 @@ const Projects: React.FC<{}> = () => {
               </div>
             </div>
           </Link>
-        </div>
+        </div> */}
         <div className="flex-col flex md:flex-row mt-8">
           <Link
             className="z-[1] flex-1"
@@ -190,7 +190,7 @@ const Projects: React.FC<{}> = () => {
             </div>
           </Link>
         </div>
-        <div className="flex-col flex md:flex-row mt-8">
+        {/* <div className="flex-col flex md:flex-row mt-8">
           <Link
             className="z-[1] flex-1"
             href="/Referencement.pdf"
@@ -249,8 +249,8 @@ const Projects: React.FC<{}> = () => {
               </div>
             </div>
           </Link>
-        </div>
-        <div className="flex-col flex md:flex-row mt-8">
+        </div> */}
+        {/* <div className="flex-col flex md:flex-row mt-8">
           <Link
             className="z-[1] flex-1"
             href="/Wordpress.pdf"
@@ -309,8 +309,8 @@ const Projects: React.FC<{}> = () => {
               </div>
             </div>
           </Link>
-        </div>
-        <div className="flex-col flex md:flex-row mt-8">
+        </div> */}
+        {/* <div className="flex-col flex md:flex-row mt-8">
           <Link
             className="z-[1] flex-1"
             href="https://portfolio-abdelali.com/"
@@ -362,7 +362,7 @@ const Projects: React.FC<{}> = () => {
               </div>
             </div>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );
