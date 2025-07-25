@@ -53,39 +53,39 @@ const Experience: React.FC<{}> = () => {
         </div>
         <div className="flex flex-col mt-10">
           <div className="flex flex-wrap">
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               React
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               JavaScript
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               PHP
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               Android
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               Docker
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               Python
             </div>
           </div>
           <div className="flex flex-wrap">
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               MySQL
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               Bootstrap
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               Java
             </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               PostGreSQL
             </div>
-            <div className="bg-transparent mt-5 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max">
+            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
               NextJS
             </div>
           </div>

@@ -46,3 +46,47 @@
 .hoverText:has(+ .hoverText + .hoverText:hover) {
   font-weight: 300;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  @keyframes rgb-glow-lux {
+    0% {
+      box-shadow: 0 0 2px rgba(255, 0, 0, 0.15);
+    }
+    25% {
+      box-shadow: 0 0 2px rgba(0, 255, 0, 0.15);
+    }
+    50% {
+      box-shadow: 0 0 2px rgba(0, 0, 255, 0.15);
+    }
+    75% {
+      box-shadow: 0 0 2px rgba(255, 0, 255, 0.15);
+    }
+    100% {
+      box-shadow: 0 0 2px rgba(255, 0, 0, 0.15);
+    }
+  }
+
+  .glow-rgb-lux {
+    position: relative;
+    z-index: 0;
+  }
+
+  .glow-rgb-lux::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 9999px;
+    z-index: -1;
+    animation: rgb-glow-lux 6s linear infinite;
+    filter: blur(1px);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
