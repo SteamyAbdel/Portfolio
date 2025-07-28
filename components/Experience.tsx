@@ -30,7 +30,7 @@ const Experience: React.FC<{}> = () => {
                 (Fac de Poitiers)
               </li>
               <li className="mb-2">
-                2022–2024 - BTS SIO Option SLAM <br />
+                2022–2025 - BTS SIO Option SLAM <br />
                 (Lycée Aliénor d&apos;Aquitaine)
               </li>
             </ul>
