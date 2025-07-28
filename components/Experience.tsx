@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-// import { useGlowEffect } from "./main/EffectExperience";
 
 const Experience: React.FC<{}> = () => {
   return (
