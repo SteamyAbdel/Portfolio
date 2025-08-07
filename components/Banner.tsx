@@ -32,20 +32,19 @@ export default function Banner() {
           </p>
         </div>
         <div className="pb-12 text-md flex justify-center gap-8 mb-12">
-          <button
-            onClick={() =>
-              window.open("mailto:abdelali.noureddine86@gmail.com")
-            }
+          <a
+            href="mailto:abdelali.noureddine86@gmail.com"
             className="shadow-lg shadow-white z-[1] padding-20  hover:bg-white rounded-3xl text-white font-semibold hover:text-black py-3 px-10 border-[0.1px] border-white hover:border-transparent "
           >
             Me contacter
-          </button>
-          <button
-            onClick={() => window.open("/CV.pdf", "_blank")}
+          </a>
+          <a
+            href="/CV.pdf"
+            download
             className="shadow-lg shadow-white z-[1] padding-20 hover:bg-white rounded-3xl text-white font-semibold hover:text-black py-3 px-10 border-[0.1px] border-white hover:border-transparent"
           >
             Télécharger mon CV
-          </button>
+          </a>
         </div>
       </div>
     </div>

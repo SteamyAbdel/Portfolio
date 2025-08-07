@@ -118,7 +118,8 @@ const StudentScore = () => {
             onClick={() =>
               window.open(
                 "https://gitea.btssio-poitiers.fr/ANDROID_P3_TEAM/ANDROID_P3_NOTE",
-                "_blank"
+                "_blank",
+                "noopener,noreferrer"
               )
             }
             className="px-4 py-2 bg-black text-white rounded-lg shadow-lg hover:bg-gray-700 mb-4"
