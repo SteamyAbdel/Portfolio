@@ -44,7 +44,8 @@ const CHL = () => {
             onClick={() =>
               window.open(
                 "https://portail.ch-poitiers.fr/rendez-vous/GYIDTILF/",
-                "_blank"
+                "_blank",
+                "noopener,noreferrer"
               )
             }
             className="px-4 py-2 bg-black text-white rounded-lg shadow-lg hover:bg-gray-700 mb-4"

@@ -59,7 +59,8 @@ const Chabis = () => {
             onClick={() =>
               window.open(
                 "https://gitea.btssio-poitiers.fr/chabis_3/chabis_Project_3",
-                "_blank"
+                "_blank",
+                "noopener,noreferrer"
               )
             }
             className="px-4 py-2 bg-black text-white rounded-lg shadow-lg hover:bg-gray-700 mb-4"

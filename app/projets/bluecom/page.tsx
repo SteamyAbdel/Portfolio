@@ -40,7 +40,8 @@ const CHL = () => {
             onClick={() =>
               window.open(
                 "https://gitlab.com/abdelcorps/site_blue_com",
-                "_blank"
+                "_blank",
+                "noopener,noreferrer"
               )
             }
             className="px-4 py-2 bg-black text-white rounded-lg shadow-lg hover:bg-gray-700 mb-4"
@@ -48,14 +49,20 @@ const CHL = () => {
             Code source du site
           </button>
           <button
-            onClick={() => window.open("https://blue-com.fr/", "_blank")}
+            onClick={() =>
+              window.open("https://blue-com.fr/", "_blank", "noopener,noreferrer")
+            }
             className="px-4 py-2 bg-black text-white rounded-lg shadow-lg hover:bg-gray-700 mb-4 ml-5"
           >
             Ancien site
           </button>
           <button
             onClick={() =>
-              window.open("https://phebus-energie.com/login", "_blank")
+              window.open(
+                "https://phebus-energie.com/login",
+                "_blank",
+                "noopener,noreferrer"
+              )
             }
             className="px-4 py-2 bg-black text-white rounded-lg shadow-lg hover:bg-gray-700 mb-4 ml-5"
           >

@@ -20,14 +20,12 @@ const Navbar: React.FC<{}> = () => {
         </Link>
 
         <div className="flex flex-row gap-5">
-          <div
-            onClick={() =>
-              window.open("mailto:abdelali.noureddine86@gmail.com")
-            }
+          <a
+            href="mailto:abdelali.noureddine86@gmail.com"
             className=" z-[1] bg-transparent  padding-10 cursor-pointer bg-black hover:bg-[#2E2E2E] rounded-xl  text-white  py-2 px-5"
           >
             Contact
-          </div>
+          </a>
         </div>
       </div>
     </div>
