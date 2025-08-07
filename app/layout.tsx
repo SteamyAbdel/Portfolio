@@ -7,9 +7,10 @@ import Navbar from "@/components/Navbar";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-abdelali.com/";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-abdelali.com/"),
+  metadataBase: new URL(siteUrl),
   title: "Abdelali NOUREDDINE",
   description: "Portfolio By Abdelali NOUREDDINE",
   keywords: ["Developer", "Portfolio", "Abdelali NOUREDDINE"],
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     title: "Abdelali NOUREDDINE",
     description: "Etudiant en informatique",
     images: "/OpenGraph.jpg",
-    url: "https://portfolio-abdelali.com/",
+    url: siteUrl,
   },
 };
 
