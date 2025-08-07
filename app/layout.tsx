@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Head from "next/head";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StarsCanvas from "@/components/main/StarsBackground";
@@ -27,6 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <Head>
+        <link rel="preload" href="/LooperGroup2.webp" as="image" />
+      </Head>
       <body
         className={`${inter.className} bg-[#111] overflow-y-scroll overflow-x-hidden`}
         suppressHydrationWarning
