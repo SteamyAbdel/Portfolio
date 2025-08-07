@@ -36,31 +36,32 @@ const Experience: React.FC<{}> = () => {
             </h2>
             <p className="text-white-300 whitespace-normal">
               Stagiaire Développeur Full-Stack • Centre Hospitalier Henri-Laborit
-              - Création de cahier des charges
-              - Développement d&apos;outils PHP en full stack
-              - Dockerisation d&apos;applications
-              - Déploiement d&apos;applications
-              Stagiaire Développeur Full-Stack • Agence Blue-Com
+              <br />
+              - Création de cahier des charges<br />
+              - Développement d&apos;outils PHP en full stack<br />
+              - Dockerisation d&apos;applications<br />
+              - Déploiement d&apos;applications<br />
+              Stagiaire Développeur Full-Stack • Agence Blue-Com<br />
               - Lors de ce stage, j&apos;ai participé activement à la refonte complète du site vitrine de
               l&apos;agence Blue-Com, avec un stack moderne mêlant Next.js pour le frontend et
-              Symfony pour le backend.
-              Stagiaire Développeur Full-Stack • Sogestea
+              Symfony pour le backend.<br />
+              Stagiaire Développeur Full-Stack • Sogestea<br />
               - Développement d&apos;un module complet de gestion des Domaines d&apos;Activité
               Stratégique (DAS) au sein d&apos;une application SaaS dédiée à la stratégie
-              commerciale.
+              commerciale.<br />
               - Création d&apos;un tableau interactif reprenant les 9 blocs du Business Model Canvas.
               - Mise en place de formulaires pour l&apos;ajout de questions par bloc, avec
-              enregistrement en base de données via Symfony et Doctrine.
+              enregistrement en base de données via Symfony et Doctrine.<br />
               - Intégration d&apos;une interface utilisateur responsive avec Twig et Bootstrap.
               - Participation à la correction de bugs, aux tests fonctionnels et à l&apos;amélioration de
-              l&apos;expérience utilisateur.
+              l&apos;expérience utilisateur.<br />
               - Utilisation de phpMyAdmin pour la gestion de la base de données et le suivi des
-              données en temps réel.
-              Chef de projet Développeur Full-Stack • Lycée Aliénor d&apos;Aquitaine
-              - Coordination d&apos;équipe
-              - Garant du bon déroulement du projet
-              - Utilisation d&apos;API
-              - Modélisation de bases de données
+              données en temps réel.<br />
+              Chef de projet Développeur Full-Stack • Lycée Aliénor d&apos;Aquitaine<br />
+              - Coordination d&apos;équipe<br />
+              - Garant du bon déroulement du projet<br />
+              - Utilisation d&apos;API<br />
+              - Modélisation de bases de données<br />
               - Codage
             </p>
           </div>
