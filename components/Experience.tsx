@@ -39,14 +39,33 @@ const Experience: React.FC<{}> = () => {
               Expériences Professionnelles
             </h2>
             <p className="text-white-300 whitespace-normal">
-              L&apos;un des aspects les plus enrichissants de ce BTS a été les
-              stages et les projets de groupe. Travailler en entreprise m&apos;a
-              permis de mettre en pratique les théories apprises en classe dans
-              des situations réelles, confrontant théorie et pratique. Ces
-              expériences m&apos;ont non seulement permis de développer mes
-              compétences techniques, mais aussi d&apos;apprendre à travailler
-              en équipe, à communiquer efficacement et à comprendre les besoins
-              des clients.
+              Stagiaire Développeur Full-Stack • Centre Hospitalier Henri-Laborit
+              - Création de cahier des charges
+              - Développement d&apos;outils PHP en full stack
+              - Dockerisation d&apos;applications
+              - Déploiement d&apos;applications
+              Stagiaire Développeur Full-Stack • Agence Blue-Com
+              - Lors de ce stage, j&apos;ai participé activement à la refonte complète du site vitrine de
+              l&apos;agence Blue-Com, avec un stack moderne mêlant Next.js pour le frontend et
+              Symfony pour le backend.
+              Stagiaire Développeur Full-Stack • Sogestea
+              - Développement d&apos;un module complet de gestion des Domaines d&apos;Activité
+              Stratégique (DAS) au sein d&apos;une application SaaS dédiée à la stratégie
+              commerciale.
+              - Création d&apos;un tableau interactif reprenant les 9 blocs du Business Model Canvas.
+              - Mise en place de formulaires pour l&apos;ajout de questions par bloc, avec
+              enregistrement en base de données via Symfony et Doctrine.
+              - Intégration d&apos;une interface utilisateur responsive avec Twig et Bootstrap.
+              - Participation à la correction de bugs, aux tests fonctionnels et à l&apos;amélioration de
+              l&apos;expérience utilisateur.
+              - Utilisation de phpMyAdmin pour la gestion de la base de données et le suivi des
+              données en temps réel.
+              Chef de projet Développeur Full-Stack • Lycée Aliénor d&apos;Aquitaine
+              - Coordination d&apos;équipe
+              - Garant du bon déroulement du projet
+              - Utilisation d&apos;API
+              - Modélisation de bases de données
+              - Codage
             </p>
           </div>
         </div>
