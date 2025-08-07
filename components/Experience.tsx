@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { formations, skills } from "@/constant";
 
 const Experience: React.FC<{}> = () => {
   return (
@@ -18,20 +19,15 @@ const Experience: React.FC<{}> = () => {
               Formations
             </h2>
             <ul className="list-disc list-inside text-white-300 whitespace-normal">
-              <li>
-                2019–2021 - Baccalauréat sciences et technologies du management
-                et de la gestion
-                <br />
-                (Lycée Saint-Jacques de Compostelle)
-              </li>
-              <li className="mb-2">
-                2021–2022 - L1 Informatique <br />
-                (Fac de Poitiers)
-              </li>
-              <li className="mb-2">
-                2022–2025 - BTS SIO Option SLAM <br />
-                (Lycée Aliénor d&apos;Aquitaine)
-              </li>
+              {formations.map((formation, index) => (
+                <li
+                  key={formation.title}
+                  className={index !== 0 ? "mb-2" : undefined}
+                >
+                  {formation.period} - {formation.title}
+                  <br />({formation.institution})
+                </li>
+              ))}
             </ul>
           </div>
           <div className="bg-white-800 bg-opacity-75 p-6 rounded-lg border border-white-600">
@@ -71,41 +67,14 @@ const Experience: React.FC<{}> = () => {
         </div>
         <div className="flex flex-col mt-10">
           <div className="flex flex-wrap">
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              React
-            </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              JavaScript
-            </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              PHP
-            </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              Android
-            </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              Docker
-            </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              Python
-            </div>
-          </div>
-          <div className="flex flex-wrap">
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              MySQL
-            </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              Bootstrap
-            </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              Java
-            </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              PostGreSQL
-            </div>
-            <div className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]">
-              NextJS
-            </div>
+            {skills.map((skill) => (
+              <div
+                key={skill}
+                className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]"
+              >
+                {skill}
+              </div>
+            ))}
           </div>
         </div>
       </div>
