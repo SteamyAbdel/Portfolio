@@ -1,85 +1,173 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { formations, skills } from "@/constant";
 
 const Experience: React.FC<{}> = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section
+    <motion.section
+      ref={ref}
       id="experience"
-      className="text-white bg-transparent bg-opacity-75 px-10 py-10"
+      className="text-white bg-transparent bg-opacity-75 px-4 md:px-10 py-10"
+      variants={containerVariants}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
     >
-      <div className="container mx-auto p-4">
-        <h1 className="text-5xl font-bold text-white mb-8 text-center">
+      <div className="container mx-auto p-4 max-w-6xl">
+        <motion.h1 
+          className="text-4xl md:text-5xl font-bold text-white mb-8 text-center"
+          variants={itemVariants}
+        >
           MON EXPERIENCE
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white-800 bg-opacity-75 p-6 rounded-lg border border-white-600 min-w-0">
-            <h2 className="text-2xl font-bold text-white-300 mb-3">
+        </motion.h1>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <motion.div 
+            className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+            variants={itemVariants}
+          >
+            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-sm">🎓</span>
               Formations
             </h2>
-            <ul className="list-disc list-inside text-white-300 whitespace-normal">
+            <div className="space-y-4">
               {formations.map((formation, index) => (
-                <li
+                <motion.div
                   key={formation.title}
-                  className={index !== 0 ? "mb-2" : undefined}
+                  className="bg-white/5 rounded-xl p-4 border border-white/10"
+                  variants={itemVariants}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  {formation.period} - {formation.title}
-                  <br />({formation.institution})
-                </li>
+                    <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <p className="text-gray-300 font-semibold text-sm">{formation.period}</p>
+                      <p className="text-white font-medium">{formation.title}</p>
+                      <p className="text-gray-400 text-sm">{formation.institution}</p>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
-            </ul>
-          </div>
-          <div className="bg-white-800 bg-opacity-75 p-6 rounded-lg border border-white-600">
-            <h2 className="text-2xl font-bold text-white-300 mb-3">
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+            variants={itemVariants}
+          >
+            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+              <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-sm">💼</span>
               Expériences Professionnelles
             </h2>
-            <p className="text-white-300 whitespace-normal">
-              Stagiaire Développeur Full-Stack • Centre Hospitalier Henri-Laborit
-              <br />
-              - Création de cahier des charges<br />
-              - Développement d&apos;outils PHP en full stack<br />
-              - Dockerisation d&apos;applications<br />
-              - Déploiement d&apos;applications<br />
-              Stagiaire Développeur Full-Stack • Agence Blue-Com<br />
-              - Lors de ce stage, j&apos;ai participé activement à la refonte complète du site vitrine de
-              l&apos;agence Blue-Com, avec un stack moderne mêlant Next.js pour le frontend et
-              Symfony pour le backend.<br />
-              Stagiaire Développeur Full-Stack • Sogestea<br />
-              - Développement d&apos;un module complet de gestion des Domaines d&apos;Activité
-              Stratégique (DAS) au sein d&apos;une application SaaS dédiée à la stratégie
-              commerciale.<br />
-              - Création d&apos;un tableau interactif reprenant les 9 blocs du Business Model Canvas.
-              - Mise en place de formulaires pour l&apos;ajout de questions par bloc, avec
-              enregistrement en base de données via Symfony et Doctrine.<br />
-              - Intégration d&apos;une interface utilisateur responsive avec Twig et Bootstrap.
-              - Participation à la correction de bugs, aux tests fonctionnels et à l&apos;amélioration de
-              l&apos;expérience utilisateur.<br />
-              - Utilisation de phpMyAdmin pour la gestion de la base de données et le suivi des
-              données en temps réel.<br />
-              Chef de projet Développeur Full-Stack • Lycée Aliénor d&apos;Aquitaine<br />
-              - Coordination d&apos;équipe<br />
-              - Garant du bon déroulement du projet<br />
-              - Utilisation d&apos;API<br />
-              - Modélisation de bases de données<br />
-              - Codage
-            </p>
-          </div>
+            <div className="space-y-4">
+              <motion.div 
+                className="bg-white/5 rounded-xl p-4 border border-white/10"
+                variants={itemVariants}
+              >
+                <h3 className="text-gray-300 font-semibold mb-2">Centre Hospitalier Henri-Laborit</h3>
+                <p className="text-gray-400 text-sm mb-2">Stagiaire Développeur Full-Stack</p>
+                <ul className="text-gray-300 text-sm space-y-1">
+                  <li>• Création de cahier des charges</li>
+                  <li>• Développement d&apos;outils PHP en full stack</li>
+                  <li>• Dockerisation d&apos;applications</li>
+                  <li>• Déploiement d&apos;applications</li>
+                </ul>
+              </motion.div>
+
+              <motion.div 
+                className="bg-white/5 rounded-xl p-4 border border-white/10"
+                variants={itemVariants}
+              >
+                <h3 className="text-gray-300 font-semibold mb-2">Agence Blue-Com</h3>
+                <p className="text-gray-400 text-sm mb-2">Stagiaire Développeur Full-Stack</p>
+                <p className="text-gray-300 text-sm">Refonte complète du site vitrine avec stack moderne : Next.js frontend + Symfony backend + API Platform.</p>
+              </motion.div>
+
+              <motion.div 
+                className="bg-white/5 rounded-xl p-4 border border-white/10"
+                variants={itemVariants}
+              >
+                <h3 className="text-gray-300 font-semibold mb-2">Sogestea</h3>
+                <p className="text-gray-400 text-sm mb-2">Stagiaire Développeur Full-Stack</p>
+                <ul className="text-gray-300 text-sm space-y-1">
+                  <li>• Développement module gestion DAS</li>
+                  <li>• Business Model Canvas interactif</li>
+                  <li>• Interface responsive Twig + Bootstrap</li>
+                  <li>• Tests fonctionnels et correction bugs</li>
+                </ul>
+              </motion.div>
+
+              <motion.div 
+                className="bg-white/5 rounded-xl p-4 border border-white/10"
+                variants={itemVariants}
+              >
+                <h3 className="text-gray-300 font-semibold mb-2">Lycée Aliénor d&apos;Aquitaine</h3>
+                <p className="text-gray-400 text-sm mb-2">Chef de projet Développeur Full-Stack</p>
+                <ul className="text-gray-300 text-sm space-y-1">
+                  <li>• Coordination d&apos;équipe</li>
+                  <li>• Garant du bon déroulement du projet</li>
+                  <li>• Utilisation d&apos;API et modélisation BDD</li>
+                </ul>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
-        <div className="flex flex-col mt-10">
-          <div className="flex flex-wrap">
-            {skills.map((skill) => (
-              <div
+        <motion.div 
+          className="mt-12"
+          variants={itemVariants}
+        >
+          <h2 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-3">
+            <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-sm">⚡</span>
+            Compétences Techniques
+          </h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            {skills.map((skill, index) => (
+              <motion.div
                 key={skill}
-                className="bg-transparent mt-5 mr-2 cursor-pointer rounded-3xl text-white py-2 px-5 border border-white w-max transition duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.8)]"
+                className="bg-white/10 hover:bg-white/20 cursor-pointer rounded-full text-white py-2 px-4 border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105"
+                variants={itemVariants}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 5px 15px rgba(255, 255, 255, 0.2)"
+                }}
               >
                 {skill}
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

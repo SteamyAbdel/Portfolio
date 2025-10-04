@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, Suspense } from "react";
+import React, { useState, useRef, Suspense, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 // @ts-ignore
@@ -11,6 +11,27 @@ const StarBackground = (props: any) => {
   const [sphere] = useState(() =>
     random.inSphere(new Float32Array(5000), { radius: 1.2 })
   );
+  const [starColor, setStarColor] = useState("white");
+
+  // Détecter le thème et changer la couleur des étoiles
+  useEffect(() => {
+    const updateStarColor = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      setStarColor(isDark ? "white" : "black");
+    };
+
+    // Observer les changements de classe sur l'élément HTML
+    const observer = new MutationObserver(updateStarColor);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    // Initialiser la couleur
+    updateStarColor();
+
+    return () => observer.disconnect();
+  }, []);
 
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 10;
@@ -22,7 +43,7 @@ const StarBackground = (props: any) => {
       <Points ref={ref} positions={sphere} stride={4} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color="white"
+          color={starColor}
           size={0.002}
           sizeAttenuation={true}
           dethWrite={false}
