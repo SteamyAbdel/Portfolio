@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 
-interface NoSSRProps {
+interface ClientOnlyProps {
   children: React.ReactNode;
   fallback?: React.ReactNode;
 }
 
-const NoSSR: React.FC<NoSSRProps> = ({ children, fallback = null }) => {
+const ClientOnly: React.FC<ClientOnlyProps> = ({ children, fallback = null }) => {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
@@ -21,4 +21,4 @@ const NoSSR: React.FC<NoSSRProps> = ({ children, fallback = null }) => {
   return <>{children}</>;
 };
 
-export default NoSSR;
+export default ClientOnly;

@@ -2,11 +2,11 @@
 
 import React from "react";
 import ThemeToggle from "./ThemeToggle";
-import NoSSR from "./NoSSR";
+import ClientOnly from "./ClientOnly";
 
 const ThemeToggleWrapper: React.FC = () => {
   return (
-    <NoSSR fallback={
+    <ClientOnly fallback={
       <button
         onClick={() => {
           const isDark = document.documentElement.classList.contains('dark');
@@ -21,7 +21,7 @@ const ThemeToggleWrapper: React.FC = () => {
       </button>
     }>
       <ThemeToggle />
-    </NoSSR>
+    </ClientOnly>
   );
 };
 
