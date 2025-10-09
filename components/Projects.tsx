@@ -181,7 +181,7 @@ const Projects: React.FC<{}> = () => {
         </a>
       </div> */}
       <motion.div 
-        className="container mx-auto max-w-6xl"
+        className="container mx-auto max-w-8xl"
         variants={itemVariants}
       >
         <motion.div 
