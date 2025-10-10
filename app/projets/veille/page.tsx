@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const Veille = () => {
   return (
     <>
@@ -62,9 +64,9 @@ const Veille = () => {
           <h2 className="text-2xl font-semibold text-white mb-4">
             Comment sont traitées les informations ?
           </h2>
-          <img src="/veille/1.png" alt="Veille 1" className="mb-4 max-w-3xl" />
-          <img src="/veille/2.png" alt="Veille 2" className="mb-4 max-w-3xl" />
-          <img src="/veille/3.png" alt="Veille 3" className="mb-4 max-w-3xl" />
+          <Image src="/veille/1.png" alt="Processus de traitement des informations de veille - Étape 1" width={800} height={600} className="mb-4 max-w-3xl" priority={false} quality={80} />
+          <Image src="/veille/2.png" alt="Processus de traitement des informations de veille - Étape 2" width={800} height={600} className="mb-4 max-w-3xl" priority={false} quality={80} />
+          <Image src="/veille/3.png" alt="Processus de traitement des informations de veille - Étape 3" width={800} height={600} className="mb-4 max-w-3xl" priority={false} quality={80} />
         </section>
       </div>
     </>

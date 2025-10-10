@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const Chabis = () => {
   const openPDF = () => {
     window.open(
@@ -37,23 +39,35 @@ const Chabis = () => {
           <h2 className="text-2xl font-semibold text-white mb-4">
             Schéma des routes
           </h2>
-          <img
+          <Image
             src="/chabis/route.png"
-            alt="chabis 1"
-            className="mb-4 max-200px"
+            alt="Schéma des routes de l'application Chabis"
+            width={400}
+            height={300}
+            className="mb-4 max-w-xs"
+            priority={false}
+            quality={80}
           />
           <h2 className="text-2xl font-semibold text-white mb-4">
             Schéma de la base de données
           </h2>
-          <img
+          <Image
             src="/chabis/UML.jpg"
-            alt="chabis 2"
-            className="mb-4 max-200px"
+            alt="Diagramme UML de l'application Chabis"
+            width={400}
+            height={300}
+            className="mb-4 max-w-xs"
+            priority={false}
+            quality={80}
           />
-          <img
+          <Image
             src="/chabis/BDD.png"
-            alt="chabis 3"
-            className="mb-4 max-200px"
+            alt="Schéma de base de données Chabis"
+            width={400}
+            height={300}
+            className="mb-4 max-w-xs"
+            priority={false}
+            quality={80}
           />
           <button
             onClick={() =>

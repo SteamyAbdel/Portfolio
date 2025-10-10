@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
 interface MicroInteractionProps {
   children: React.ReactNode;
@@ -16,77 +15,33 @@ const MicroInteraction: React.FC<MicroInteractionProps> = ({
   className = "",
   delay = 0
 }) => {
-  const getVariants = () => {
+  const getHoverClasses = () => {
     switch (type) {
       case "card":
-        return {
-          hover: {
-            y: -8,
-            scale: 1.02,
-            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
-            transition: { duration: 0.3, ease: "easeOut" }
-          },
-          tap: {
-            scale: 0.98,
-            transition: { duration: 0.1 }
-          }
-        };
+        return "hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 ease-out";
       case "button":
-        return {
-          hover: {
-            scale: 1.05,
-            boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
-            transition: { duration: 0.2, ease: "easeOut" }
-          },
-          tap: {
-            scale: 0.95,
-            transition: { duration: 0.1 }
-          }
-        };
+        return "hover:scale-105 hover:shadow-lg transition-all duration-200 ease-out active:scale-95";
       case "image":
-        return {
-          hover: {
-            scale: 1.1,
-            filter: "brightness(1.1)",
-            transition: { duration: 0.4, ease: "easeOut" }
-          },
-          tap: {
-            scale: 0.95,
-            transition: { duration: 0.1 }
-          }
-        };
+        return "hover:scale-110 hover:brightness-110 transition-all duration-400 ease-out active:scale-95";
       case "text":
-        return {
-          hover: {
-            scale: 1.05,
-            color: "#ffffff",
-            transition: { duration: 0.2, ease: "easeOut" }
-          },
-          tap: {
-            scale: 0.95,
-            transition: { duration: 0.1 }
-          }
-        };
+        return "hover:scale-105 hover:text-white transition-all duration-200 ease-out active:scale-95";
       default:
-        return {
-          hover: { scale: 1.05 },
-          tap: { scale: 0.95 }
-        };
+        return "hover:scale-105 transition-all duration-200 ease-out active:scale-95";
     }
   };
 
   return (
-    <motion.div
-      className={className}
-      variants={getVariants()}
-      whileHover="hover"
-      whileTap="tap"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
+    <div
+      className={`${className} ${getHoverClasses()}`}
+      style={{
+        animationDelay: `${delay}ms`,
+        opacity: 0,
+        transform: 'translateY(20px)',
+        animation: 'fadeInUp 0.5s ease-out forwards'
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 

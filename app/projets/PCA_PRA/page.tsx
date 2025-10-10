@@ -1,6 +1,7 @@
 "use client";
 
 import Head from "next/head";
+import Image from "next/image";
 
 const PcaPra = () => {
   return (
@@ -48,10 +49,14 @@ const PcaPra = () => {
           <h2 className="text-2xl font-semibold mb-4 text-white">
             SCHÉMA ILLUSTRANT LES DIFFÉRENCES :
           </h2>
-          <img
+          <Image
             src="/pages/cloud.jpg"
-            alt="Example PRA"
+            alt="Schéma illustrant les différences entre cloud privé et public"
+            width={500}
+            height={300}
             className="mb-4 max-w-md"
+            priority={false}
+            quality={80}
           />
         </section>
         <section className="mb-8">
@@ -121,10 +126,14 @@ const PcaPra = () => {
           <h2 className="text-2xl font-semibold mb-4 text-white">
             TABLEAU DE DIFFÉRENCIATION :
           </h2>
-          <img
+          <Image
             src="/pages/tableau.png"
-            alt="Example PRA"
-            className="mb-4 max-w-l"
+            alt="Tableau de différenciation entre IaaS, PaaS et SaaS"
+            width={800}
+            height={600}
+            className="mb-4 max-w-full"
+            priority={false}
+            quality={80}
           />
         </section>
         <section>

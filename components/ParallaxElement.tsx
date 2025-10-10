@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 
 interface ParallaxElementProps {
   children: React.ReactNode;
@@ -59,16 +58,15 @@ const ParallaxElement: React.FC<ParallaxElementProps> = ({
   };
 
   return (
-    <motion.div
+    <div
       className={className}
       style={{
         transform: getTransform(),
         willChange: "transform"
       }}
-      transition={{ duration: 0.1, ease: "easeOut" }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 

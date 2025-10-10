@@ -1,11 +1,8 @@
 "use client";
 
-import OptimizedImage from "./OptimizedImage";
-import Link from "next/link";
 import React, { useState } from "react";
-import MicroInteraction from "./MicroInteraction";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import Link from "next/link";
+import Image from "next/image";
 
 interface Project {
   id: string;
@@ -18,7 +15,7 @@ interface Project {
   color: string;
 }
 
-const Projects: React.FC<{}> = () => {
+const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const projects: Project[] = [
@@ -30,17 +27,17 @@ const Projects: React.FC<{}> = () => {
       link: "/projets/studentscore",
       skills: ["Android", "Java"],
       competencies: "C1, C4, C5",
-      color: "purple"
+      color: "from-blue-500 to-purple-600"
     },
     {
       id: "chabis",
       title: "Chabis",
       description: "Application de gestion complète du cheptel caprin de la société CHABIS, de la naissance à la production.",
-      image: "/projets/php.png",
+      image: "/projets/pronote.png",
       link: "/projets/chabis",
       skills: ["PHP", "MySQL"],
       competencies: "C1, C4, C5",
-      color: "orange"
+      color: "from-green-500 to-teal-600"
     },
     {
       id: "chl",
@@ -48,27 +45,47 @@ const Projects: React.FC<{}> = () => {
       description: "Interface intuitive pour la gestion des disponibilités des agents avec système de vote et visualisation sécurisée.",
       image: "/projets/chl.png",
       link: "/projets/chl",
-      skills: ["PHP", "MySQL", "Bootstrap"],
+      skills: ["PHP", "MySQL"],
       competencies: "C1, C2, C4, C5, C6",
-      color: "blue"
+      color: "from-orange-500 to-red-600"
     },
     {
       id: "bluecom",
-      title: "BLUE COM",
-      description: "Refonte complète du site vitrine avec stack moderne : Symfony backend + API Platform + Next.js frontend.",
+      title: "Blue-Com",
+      description: "Refonte complète du site vitrine avec stack moderne : Next.js frontend + Symfony backend + API Platform.",
       image: "/projets/blue-com.svg",
       link: "/projets/bluecom",
       skills: ["Next.js", "Symfony", "API Platform"],
       competencies: "C1, C2, C4, C5, C6",
-      color: "green"
+      color: "from-cyan-500 to-blue-600"
+    },
+    {
+      id: "pca-pra",
+      title: "PCA/PRA",
+      description: "Système de gestion des Plans de Continuité d'Activité et Plans de Reprise d'Activité pour les entreprises.",
+      image: "/projets/pcaPra.png",
+      link: "/projets/PCA_PRA",
+      skills: ["PHP", "MySQL", "Bootstrap"],
+      competencies: "C1, C4, C5",
+      color: "from-purple-500 to-pink-600"
+    },
+    {
+      id: "veille",
+      title: "Veille Technologique",
+      description: "Plateforme de veille technologique avec système de curation et partage d'articles techniques.",
+      image: "/projets/veille.png",
+      link: "/projets/veille",
+      skills: ["PHP", "MySQL", "JavaScript"],
+      competencies: "C1, C4, C5",
+      color: "from-indigo-500 to-purple-600"
     }
   ];
 
   const filters = [
-    { id: "all", label: "Tous" },
-    { id: "web", label: "Web" },
-    { id: "mobile", label: "Mobile" },
-    { id: "fullstack", label: "Full-Stack" }
+    { key: "all", label: "Tous" },
+    { key: "web", label: "Web" },
+    { key: "mobile", label: "Mobile" },
+    { key: "fullstack", label: "Full-Stack" }
   ];
 
   const getFilteredProjects = () => {
@@ -77,9 +94,13 @@ const Projects: React.FC<{}> = () => {
     return projects.filter(project => {
       switch (activeFilter) {
         case "web":
-          return project.skills.some(skill => ["PHP", "Next.js", "Symfony", "API Platform"].includes(skill));
+          return project.skills.some(skill => 
+            ["PHP", "MySQL", "Next.js", "Symfony", "API Platform", "Bootstrap", "JavaScript"].includes(skill)
+          );
         case "mobile":
-          return project.skills.some(skill => ["Android", "Java"].includes(skill));
+          return project.skills.some(skill => 
+            ["Android", "Java"].includes(skill)
+          );
         case "fullstack":
           return project.skills.length > 1;
         default:
@@ -87,170 +108,125 @@ const Projects: React.FC<{}> = () => {
       }
     });
   };
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const projectVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    },
-    hover: {
-      scale: 1.02,
-      transition: {
-        duration: 0.2
-      }
-    }
-  };
 
   return (
-    <motion.section 
-      ref={ref}
+    <section
       id="projects"
-      className="px-4"
-      variants={containerVariants}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
+      className="px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-24"
     >
-      <motion.h1 
-        className="text-white text-4xl md:text-5xl font-bold text-center mb-6"
-        variants={itemVariants}
-      >
-        MES PROJETS
-      </motion.h1>
+      <div className="container mx-auto max-w-7xl">
+        {/* Titre principal */}
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6">
+            MES PROJETS
+          </h1>
+          <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto">
+            Découvrez mes réalisations et projets développés au cours de ma formation
+          </p>
+        </div>
 
-      {/* Filtres */}
-      <motion.div 
-        className="flex flex-wrap justify-center gap-3 mb-8"
-        variants={itemVariants}
-      >
-        {filters.map((filter) => (
-          <motion.button
-            key={filter.id}
-            onClick={() => setActiveFilter(filter.id)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-              activeFilter === filter.id
-                ? "bg-gradient-to-r from-purple-500 to-orange-400 text-white shadow-lg"
-                : "bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white border border-white/20"
-            }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {filter.label}
-          </motion.button>
-        ))}
-      </motion.div>
-      {/* <div className="flex justify-center mt-10">
-        <a
-          href="/Tableau_competences.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="shadow-lg shadow-white z-[1] padding-20 hover:bg-white rounded-3xl text-white font-semibold hover:text-black py-3 px-10 border-[0.1px] border-white hover:border-transparent"
-        >
-          Tableau de Compétences
-        </a>
-      </div> */}
-      <motion.div 
-        className="container mx-auto max-w-8xl"
-        variants={itemVariants}
-      >
-        <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-          layout
-        >
+        {/* Filtres */}
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-12 sm:mb-16 md:mb-20">
+          {filters.map((filter) => (
+            <button
+              key={filter.key}
+              onClick={() => setActiveFilter(filter.key)}
+              className={`px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-medium transition-all duration-300 hover:scale-105 ${
+                activeFilter === filter.key
+                  ? "bg-gradient-to-r from-purple-500 to-orange-400 text-white shadow-lg"
+                  : "bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white border border-white/20"
+              }`}
+            >
+              {filter.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Grille des projets */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {getFilteredProjects().map((project, index) => (
-            <MicroInteraction
+            <div
               key={project.id}
-              type="card"
-              delay={index * 0.1}
-              className="w-full"
+              className="group"
             >
               <Link
-                className="block group"
                 href={project.link}
+                className="block h-full"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className={`bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-all duration-300 h-full group-hover:bg-white/10`}>
-                  <div className="flex flex-col md:flex-row items-start gap-4">
-                    <div className="flex-shrink-0">
-                      <MicroInteraction type="image">
-                        <OptimizedImage
-                          alt={project.title}
-                          width={120}
-                          height={120}
-                          className="w-24 h-24 md:w-32 md:h-32 rounded-xl object-cover"
-                          src={project.image}
-                          priority={false}
-                          quality={80}
-                          sizes="(max-width: 768px) 100px, 120px"
-                        />
-                      </MicroInteraction>
+                <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-white/30 transition-all duration-500 h-full group-hover:bg-white/10 group-hover:shadow-2xl group-hover:shadow-purple-500/10 group-hover:-translate-y-2">
+                  
+                  {/* Image du projet */}
+                  <div className="relative mb-6 sm:mb-8 overflow-hidden rounded-2xl">
+                    <div className="aspect-video relative">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        quality={85}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <div className="flex-1">
-                      <MicroInteraction type="text" delay={0.1}>
-                        <h3 className="text-white font-bold text-xl mb-2 group-hover:text-white transition-colors duration-300">
-                          {project.title}
-                        </h3>
-                      </MicroInteraction>
-                      <MicroInteraction type="text" delay={0.2}>
-                        <p className="text-gray-300 mb-4 group-hover:text-gray-200 transition-colors duration-300">
-                          {project.description}
-                        </p>
-                      </MicroInteraction>
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {project.skills.map((skill, skillIndex) => (
-                          <MicroInteraction key={skill} type="button" delay={0.3 + skillIndex * 0.1}>
-                            <span className="bg-white/10 text-white px-3 py-1 rounded-full text-sm font-medium border border-white/20 hover:bg-white/20 transition-all duration-300">
-                              {skill}
-                            </span>
-                          </MicroInteraction>
-                        ))}
-                      </div>
-                      <MicroInteraction type="text" delay={0.4}>
-                        <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                          <span className="font-semibold">Compétences :</span> {project.competencies}
-                        </p>
-                      </MicroInteraction>
+                  </div>
+
+                  {/* Contenu du projet */}
+                  <div className="space-y-4 sm:space-y-6">
+                    {/* Titre */}
+                    <h3 className="text-white font-bold text-xl sm:text-2xl lg:text-3xl group-hover:text-purple-300 transition-colors duration-300">
+                      {project.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
+                      {project.description}
+                    </p>
+
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
+                      {project.skills.map((skill, skillIndex) => (
+                        <span
+                          key={skillIndex}
+                          className="bg-white/10 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Compétences */}
+                    <div className="pt-2 sm:pt-4 border-t border-white/10">
+                      <p className="text-gray-400 text-xs sm:text-sm group-hover:text-gray-300 transition-colors duration-300">
+                        <span className="font-semibold">Compétences :</span> {project.competencies}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Indicateur de lien */}
+                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
                     </div>
                   </div>
                 </div>
               </Link>
-            </MicroInteraction>
+            </div>
           ))}
-        </motion.div>
-      </motion.div>
-    </motion.section>
+        </div>
+
+        {/* Message si aucun projet trouvé */}
+        {getFilteredProjects().length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-400 text-lg">Aucun projet trouvé pour ce filtre.</p>
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 

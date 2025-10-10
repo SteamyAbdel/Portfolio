@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 interface Testimonial {
   id: number;
@@ -16,10 +14,6 @@ interface Testimonial {
 
 const Testimonials: React.FC = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
 
   const testimonials: Testimonial[] = [
     {
@@ -51,28 +45,6 @@ const Testimonials: React.FC = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -87,43 +59,22 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <motion.section
-      ref={ref}
+    <section
       id="testimonials"
       className="px-4 md:px-10 py-20"
-      variants={containerVariants}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
     >
       <div className="container mx-auto max-w-6xl">
-        <motion.h1 
-          className="text-4xl md:text-5xl font-bold text-white mb-4 text-center"
-          variants={itemVariants}
-        >
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-center">
           Avis
-        </motion.h1>
+        </h1>
         
-        <motion.p 
-          className="text-gray-300 text-center mb-12 text-lg"
-          variants={itemVariants}
-        >
+        <p className="text-gray-300 text-center mb-12 text-lg">
           Retours de mes collègues et encadrants professionnels
-        </motion.p>
+        </p>
 
-        <motion.div 
-          className="relative max-w-4xl mx-auto"
-          variants={itemVariants}
-        >
+        <div className="relative max-w-4xl mx-auto">
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 min-h-[300px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentTestimonial}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.3 }}
-                className="text-center"
-              >
+            <div className="text-center transition-all duration-300">
                 <div className="text-6xl mb-4">{testimonials[currentTestimonial].avatar}</div>
                 
                 <div className="flex justify-center mb-4">
@@ -147,54 +98,47 @@ const Testimonials: React.FC = () => {
                     {testimonials[currentTestimonial].company}
                   </p>
                 </div>
-              </motion.div>
-            </AnimatePresence>
+            </div>
 
             {/* Navigation buttons */}
             <div className="flex justify-center items-center gap-4 mt-8">
-              <motion.button
+              <button
                 onClick={prevTestimonial}
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-200"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-200 hover:scale-110"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
-              </motion.button>
+              </button>
 
               {/* Dots indicator */}
               <div className="flex gap-2">
                 {testimonials.map((_, index) => (
-                  <motion.button
+                  <button
                     key={index}
                     onClick={() => goToTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-colors duration-200 ${
+                    className={`w-3 h-3 rounded-full transition-all duration-200 hover:scale-125 ${
                       index === currentTestimonial 
                         ? "bg-gradient-to-r from-purple-500 to-orange-400" 
                         : "bg-white/30 hover:bg-white/50"
                     }`}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.8 }}
                   />
                 ))}
               </div>
 
-              <motion.button
+              <button
                 onClick={nextTestimonial}
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-200"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-200 hover:scale-110"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </motion.button>
+              </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

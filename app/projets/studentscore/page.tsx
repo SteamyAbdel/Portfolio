@@ -1,6 +1,7 @@
 "use client";
 
 import Head from "next/head";
+import Image from "next/image";
 
 const StudentScore = () => {
   const openPDF = () => {
@@ -112,8 +113,8 @@ const StudentScore = () => {
           >
             Cahier des charges
           </button>
-          <img src="/student/1.png" alt="student 1" className="mb-4 max-w-lg" />
-          <img src="/student/2.JPG" alt="student 2" className="mb-4 max-w-lg" />
+          <Image src="/student/1.png" alt="Capture d'écran StudentScore - Interface principale" width={400} height={600} className="mb-4 max-w-lg" priority={false} quality={80} />
+          <Image src="/student/2.JPG" alt="Capture d'écran StudentScore - Fonctionnalités" width={400} height={600} className="mb-4 max-w-lg" priority={false} quality={80} />
           <button
             onClick={() =>
               window.open(

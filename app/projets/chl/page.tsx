@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const CHL = () => {
   const openPDF = () => {
     window.open("/CHL/cahierdescharges.pdf", "_blank", "noopener,noreferrer");
@@ -33,13 +35,13 @@ const CHL = () => {
           <h2 className="text-2xl font-semibold text-white mb-4">
             Liste des sondages
           </h2>
-          <img src="/CHL/1.jpg" alt="Example PRA" className="mb-4 max-w-lg" />
+          <Image src="/CHL/1.jpg" alt="Liste des sondages CHL" width={600} height={400} className="mb-4 max-w-lg" priority={false} quality={80} />
 
           <h2 className="text-2xl font-semibold text-white mb-4">
             Schéma de la base de données
           </h2>
-          <img src="/CHL/2.jpeg" alt="CHL 1" className="mb-4 max-w-lg" />
-          <img src="/CHL/3.jpg" alt="CHL 2" className="mb-4 max-w-lg" />
+          <Image src="/CHL/2.jpeg" alt="Schéma de base de données CHL - Partie 1" width={600} height={400} className="mb-4 max-w-lg" priority={false} quality={80} />
+          <Image src="/CHL/3.jpg" alt="Schéma de base de données CHL - Partie 2" width={600} height={400} className="mb-4 max-w-lg" priority={false} quality={80} />
           <button
             onClick={() =>
               window.open(

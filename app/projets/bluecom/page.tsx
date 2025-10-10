@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const CHL = () => {
   const openPDF = () => {
     window.open("/blue/Journal.pdf", "_blank", "noopener,noreferrer");
@@ -31,11 +33,11 @@ const CHL = () => {
           <h2 className="text-2xl font-semibold text-white mb-4">
             Voici a quoi devrai ressembler le site, designé sur figma
           </h2>
-          <img src="/blue/5.png" alt="blue 1" className="mb-4 max-w-lg" />
-          <img src="/blue/4.png" alt="blue 2" className="mb-4 max-w-lg" />
-          <img src="/blue/1.png" alt="blue 3" className="mb-4 max-w-lg" />
-          <img src="/blue/2.png" alt="blue 4" className="mb-4 max-w-lg" />
-          <img src="/blue/3.png" alt="blue 5" className="mb-4 max-w-lg" />
+          <Image src="/blue/5.png" alt="Design Figma BlueCom - Page 1" width={600} height={400} className="mb-4 max-w-lg" priority={false} quality={80} />
+          <Image src="/blue/4.png" alt="Design Figma BlueCom - Page 2" width={600} height={400} className="mb-4 max-w-lg" priority={false} quality={80} />
+          <Image src="/blue/1.png" alt="Design Figma BlueCom - Page 3" width={600} height={400} className="mb-4 max-w-lg" priority={false} quality={80} />
+          <Image src="/blue/2.png" alt="Design Figma BlueCom - Page 4" width={600} height={400} className="mb-4 max-w-lg" priority={false} quality={80} />
+          <Image src="/blue/3.png" alt="Design Figma BlueCom - Page 5" width={600} height={400} className="mb-4 max-w-lg" priority={false} quality={80} />
           <button
             onClick={() =>
               window.open(
