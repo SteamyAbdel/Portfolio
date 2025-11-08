@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     requireAuth(request);
 
     const body = await request.json();
-    const { title, description, platform, url, thumbnail, channelName } = body;
+    const { title, platform, url, thumbnail, channelName } = body;
 
     if (!title || !platform || !url) {
       return NextResponse.json(
@@ -38,7 +38,6 @@ export async function POST(request: NextRequest) {
 
     const video = addVideo({
       title,
-      description: description || undefined,
       platform,
       url,
       thumbnail: thumbnail || '',
@@ -47,6 +46,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(video, { status: 201 });
   } catch (error: any) {
+    console.error('Erreur POST /api/videos:', error);
     if (error.message === 'Non authentifié') {
       return NextResponse.json(
         { error: 'Non authentifié' },
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
       );
     }
     return NextResponse.json(
-      { error: 'Erreur lors de l\'ajout de la vidéo' },
+      { error: 'Erreur lors de l\'ajout de la vidéo', details: error.message },
       { status: 500 }
     );
   }

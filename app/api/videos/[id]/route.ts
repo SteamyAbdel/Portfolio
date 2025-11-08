@@ -35,11 +35,10 @@ export async function PUT(
     requireAuth(request);
 
     const body = await request.json();
-    const { title, description, platform, url, thumbnail, channelName } = body;
+    const { title, platform, url, thumbnail, channelName } = body;
 
     const video = updateVideo(params.id, {
       title,
-      description: description !== undefined ? description : undefined,
       platform,
       url,
       thumbnail,
