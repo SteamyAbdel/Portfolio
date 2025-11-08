@@ -66,14 +66,6 @@ const Navbar: React.FC<{}> = () => {
             ))}
             <ThemeToggleWrapper />
             <MicroInteraction type="button" delay={0.6}>
-              <Link
-                href="/video-portfolio"
-                className="bg-purple-500 text-white hover:bg-purple-600 font-semibold py-2 px-6 rounded-full transition-all duration-200 hover:scale-105 shadow-lg"
-              >
-                🎬 Vidéo
-              </Link>
-            </MicroInteraction>
-            <MicroInteraction type="button" delay={0.7}>
               <a
                 href="mailto:abdelali.noureddine86@gmail.com"
                 className="bg-white text-black hover:bg-gray-200 font-semibold py-2 px-6 rounded-full transition-all duration-200 hover:scale-105 shadow-lg"
@@ -115,12 +107,6 @@ const Navbar: React.FC<{}> = () => {
                 <span className="text-white text-sm font-medium">Thème</span>
                 <ThemeToggleWrapper />
               </div>
-              <Link
-                href="/video-portfolio"
-                className="block w-full bg-purple-500 text-white hover:bg-purple-600 font-semibold py-3 px-6 rounded-full transition-all duration-200 text-center mb-2"
-              >
-                🎬 Portfolio Vidéo
-              </Link>
               <a
                 href="mailto:abdelali.noureddine86@gmail.com"
                 className="block w-full bg-white text-black hover:bg-gray-200 font-semibold py-3 px-6 rounded-full transition-all duration-200 text-center"

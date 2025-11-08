@@ -8,6 +8,7 @@ import type { Video } from "@/lib/videos";
 export default function VideoPortfolioPage() {
   const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
+  const [videoType, setVideoType] = useState<string | null>(null);
 
   useEffect(() => {
     fetchVideos();
@@ -28,13 +29,26 @@ export default function VideoPortfolioPage() {
   const getPlatformIcon = (platform: Video["platform"]) => {
     switch (platform) {
       case "youtube":
-        return "▶️";
+        return "📺";
       case "tiktok":
         return "🎵";
       case "instagram":
         return "📷";
       default:
         return "🎥";
+    }
+  };
+
+  const getPlatformName = (platform: Video["platform"]) => {
+    switch (platform) {
+      case "youtube":
+        return "YouTube";
+      case "tiktok":
+        return "TikTok";
+      case "instagram":
+        return "Instagram";
+      default:
+        return "Plateforme";
     }
   };
 
@@ -51,26 +65,34 @@ export default function VideoPortfolioPage() {
     }
   };
 
-  // Grouper les vidéos par type (pour l'instant, on affiche toutes)
+  // Types de vidéos
   const videoTypes = [
     { id: "gaming", name: "Gaming / Best Of", icon: "🎮" },
     { id: "vlog", name: "Vlog / IRL", icon: "📹" },
     { id: "teaser", name: "Teaser", icon: "🎬" },
   ];
 
+  // Clients/Collaborateurs
+  const clients = [
+    { name: "Prince", handle: "@Prince" },
+    { name: "Guissepa", handle: "@Guissepa" },
+    { name: "Paga", handle: "@Paga" },
+    { name: "humanitarian_fp", handle: "@humanitarian_fp" },
+  ];
+
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#111] text-black dark:text-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black mx-auto mb-4"></div>
-          <p className="text-black">Chargement...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black dark:border-white mx-auto mb-4"></div>
+          <p>Chargement...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-white text-black py-12 px-4 sm:px-6 md:px-8">
+    <div className="min-h-screen bg-white dark:bg-[#111] text-black dark:text-white py-12 px-4 sm:px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Colonne Gauche - Profil */}
@@ -83,7 +105,7 @@ export default function VideoPortfolioPage() {
                   alt="Abdel / Steamy Cut & Create Studio"
                   width={160}
                   height={160}
-                  className="rounded-full object-cover border-2 border-gray-200"
+                  className="rounded-full object-cover border-2 border-gray-200 dark:border-gray-700"
                   priority
                 />
               </div>
@@ -94,41 +116,33 @@ export default function VideoPortfolioPage() {
               <h1 className="text-2xl sm:text-3xl font-bold mb-2 leading-tight">
                 Abdel / Steamy Cut & Create Studio
               </h1>
-              <p className="text-gray-600 text-base sm:text-lg">Monteur vidéo free-lance</p>
+              <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
+                Monteur vidéo free-lance
+              </p>
             </div>
 
             {/* Compétences */}
-            <div className="flex items-center gap-2 text-gray-700">
+            <div className="flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300">
               <span className="text-xl">🖥️</span>
               <span>Suite adobe, C4D, Blender</span>
             </div>
 
             {/* Localisation */}
-            <div className="flex items-center gap-2 text-gray-700">
+            <div className="flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300">
               <span className="text-red-500">📍</span>
               <span>Poitiers, France</span>
             </div>
 
             {/* Work With */}
             <div>
-              <h3 className="font-semibold mb-3">Work with:</h3>
+              <h3 className="font-semibold mb-3 text-center">Work with:</h3>
               <ul className="space-y-2">
-                <li className="flex items-center gap-2">
-                  <span className="text-black">▶</span>
-                  <span className="text-gray-700">@Prince</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-black">▶</span>
-                  <span className="text-gray-700">@Guissepa</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-black">▶</span>
-                  <span className="text-gray-700">@Paga</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-black">▶</span>
-                  <span className="text-gray-700">@humanitarian_fp</span>
-                </li>
+                {clients.map((client) => (
+                  <li key={client.handle} className="flex items-center justify-center gap-2">
+                    <span className="text-black dark:text-white">▶</span>
+                    <span className="text-gray-700 dark:text-gray-300">{client.handle}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -136,7 +150,7 @@ export default function VideoPortfolioPage() {
             <div className="pt-4">
               <Link
                 href="/"
-                className="text-gray-500 hover:text-black text-sm transition-colors"
+                className="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white text-sm transition-colors text-center block"
               >
                 ← Retour au portfolio principal
               </Link>
@@ -153,7 +167,7 @@ export default function VideoPortfolioPage() {
               </h2>
               <div className="grid grid-cols-1 gap-4">
                 {/* Twitter */}
-                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center text-white text-xl">
@@ -161,7 +175,7 @@ export default function VideoPortfolioPage() {
                       </div>
                       <div>
                         <p className="font-semibold text-base">Twitter</p>
-                        <p className="text-sm text-gray-600">@AbdelNRD</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">@AbdelNRD</p>
                       </div>
                     </div>
                   </div>
@@ -176,15 +190,15 @@ export default function VideoPortfolioPage() {
                 </div>
 
                 {/* YouTube */}
-                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center text-white text-xl">
-                        ▶️
+                        📺
                       </div>
                       <div>
                         <p className="font-semibold text-base">Cut & Create Studio</p>
-                        <p className="text-sm text-gray-600">YouTube</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">YouTube</p>
                       </div>
                     </div>
                   </div>
@@ -199,7 +213,7 @@ export default function VideoPortfolioPage() {
                 </div>
 
                 {/* Instagram */}
-                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-orange-400 rounded-lg flex items-center justify-center text-white text-xl">
@@ -207,7 +221,7 @@ export default function VideoPortfolioPage() {
                       </div>
                       <div>
                         <p className="font-semibold text-base">@cutncreatestudio</p>
-                        <p className="text-sm text-gray-600">Instagram</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Instagram</p>
                       </div>
                     </div>
                   </div>
@@ -228,19 +242,19 @@ export default function VideoPortfolioPage() {
               <h2 className="text-xl font-bold mb-4">Portfolio par type de vidéos :</h2>
               <div className="grid grid-cols-1 gap-3">
                 {videoTypes.map((type) => (
-                  <Link
+                  <button
                     key={type.id}
-                    href={`/video-portfolio?type=${type.id}`}
-                    className="flex items-center gap-3 bg-pink-50 hover:bg-pink-100 rounded-xl p-4 border border-pink-200 transition-all group cursor-pointer"
+                    onClick={() => setVideoType(videoType === type.id ? null : type.id)}
+                    className="flex items-center gap-3 bg-pink-50 dark:bg-pink-900/20 hover:bg-pink-100 dark:hover:bg-pink-900/30 rounded-xl p-4 border border-pink-200 dark:border-pink-800 transition-all group cursor-pointer text-left w-full"
                   >
                     <span className="text-xl">{getPlatformIcon("youtube")}</span>
-                    <span className="font-medium text-base group-hover:text-pink-600 transition-colors">
+                    <span className="font-medium text-base group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
                       {type.name}
                     </span>
-                    <span className="ml-auto text-gray-400 group-hover:text-gray-600 transition-colors">
+                    <span className="ml-auto text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                       →
                     </span>
-                  </Link>
+                  </button>
                 ))}
               </div>
             </div>
@@ -249,53 +263,30 @@ export default function VideoPortfolioPage() {
             <div>
               <h2 className="text-xl font-bold mb-4">Ils me font confiance :</h2>
               <div className="grid grid-cols-3 gap-3">
-                {/* Client 1 - Prince */}
-                <a
-                  href="#"
-                  className="relative group"
-                >
-                  <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden border border-gray-200 hover:border-gray-300 transition-colors">
-                    <div className="w-full h-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
-                      <span className="text-4xl">👤</span>
+                {clients.map((client, index) => (
+                  <a
+                    key={client.handle}
+                    href="#"
+                    className="relative group"
+                  >
+                    <div className="aspect-square bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
+                      <div className={`w-full h-full flex items-center justify-center ${
+                        index === 0 ? "bg-gradient-to-br from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30" :
+                        index === 1 ? "bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30" :
+                        index === 2 ? "bg-gradient-to-br from-green-100 to-green-200 dark:from-green-900/30 dark:to-green-800/30" :
+                        "bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900/30 dark:to-purple-800/30"
+                      }`}>
+                        <span className="text-4xl">
+                          {index === 0 ? "👤" : index === 1 ? "👥" : index === 2 ? "👥" : "🌍"}
+                        </span>
+                      </div>
+                      <div className="absolute top-2 right-2 w-5 h-5 bg-black/20 dark:bg-white/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span className="text-white dark:text-black text-xs">→</span>
+                      </div>
                     </div>
-                    <div className="absolute top-2 right-2 w-5 h-5 bg-black/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="text-white text-xs">→</span>
-                    </div>
-                  </div>
-                  <p className="text-center text-sm mt-2 font-medium">Prince</p>
-                </a>
-
-                {/* Client 2 - Guissepa & Paga */}
-                <a
-                  href="#"
-                  className="relative group"
-                >
-                  <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden border border-gray-200 hover:border-gray-300 transition-colors">
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                      <span className="text-4xl">👥</span>
-                    </div>
-                    <div className="absolute top-2 right-2 w-5 h-5 bg-black/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="text-white text-xs">→</span>
-                    </div>
-                  </div>
-                  <p className="text-center text-sm mt-2 font-medium">Guissepa & Paga</p>
-                </a>
-
-                {/* Client 3 - Humanitarian FP */}
-                <a
-                  href="#"
-                  className="relative group"
-                >
-                  <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden border border-gray-200 hover:border-gray-300 transition-colors">
-                    <div className="w-full h-full bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
-                      <span className="text-3xl">🌍</span>
-                    </div>
-                    <div className="absolute top-2 right-2 w-5 h-5 bg-black/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="text-white text-xs">→</span>
-                    </div>
-                  </div>
-                  <p className="text-center text-sm mt-2 font-medium">humanitarian_fp</p>
-                </a>
+                    <p className="text-center text-sm mt-2 font-medium">{client.name}</p>
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -310,26 +301,26 @@ export default function VideoPortfolioPage() {
                       href={video.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block bg-white rounded-xl p-4 border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all group"
+                      className="block bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-md transition-all group"
                     >
                       <div className="flex items-start gap-3">
                         <div className={`w-12 h-12 ${getPlatformColor(video.platform)} rounded-lg flex items-center justify-center text-white text-lg flex-shrink-0`}>
                           {getPlatformIcon(video.platform)}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-base mb-1 group-hover:text-blue-600 transition-colors line-clamp-1">
+                          <h3 className="font-semibold text-base mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
                             {video.title}
                           </h3>
                           {video.channelName && (
-                            <p className="text-sm text-gray-600 mb-1">
+                            <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
                               {video.channelName}
                             </p>
                           )}
-                          <p className="text-sm text-gray-500 line-clamp-1">
+                          <p className="text-sm text-gray-500 dark:text-gray-500 line-clamp-1">
                             {video.description}
                           </p>
                         </div>
-                        <span className="text-gray-400 group-hover:text-gray-600 transition-colors text-lg">
+                        <span className="text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors text-lg">
                           →
                         </span>
                       </div>
