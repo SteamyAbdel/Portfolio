@@ -31,8 +31,17 @@ export function getVideos(): Video[] {
   initDataFile();
   try {
     const data = fs.readFileSync(dataFilePath, 'utf-8');
-    return JSON.parse(data);
+    const parsed = JSON.parse(data);
+    
+    // S'assurer que le résultat est un tableau
+    if (!Array.isArray(parsed)) {
+      console.error('Le fichier videos.json ne contient pas un tableau valide:', parsed);
+      return [];
+    }
+    
+    return parsed;
   } catch (error) {
+    console.error('Erreur lors de la lecture des vidéos:', error);
     return [];
   }
 }

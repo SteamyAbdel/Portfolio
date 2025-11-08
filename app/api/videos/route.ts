@@ -6,12 +6,18 @@ import { requireAuth } from '@/lib/auth';
 export async function GET() {
   try {
     const videos = getVideos();
+    
+    // S'assurer que videos est toujours un tableau
+    if (!Array.isArray(videos)) {
+      console.error('getVideos() n\'a pas retourné un tableau:', videos);
+      return NextResponse.json([], { status: 200 });
+    }
+    
     return NextResponse.json(videos);
   } catch (error) {
-    return NextResponse.json(
-      { error: 'Erreur lors de la récupération des vidéos' },
-      { status: 500 }
-    );
+    console.error('Erreur dans GET /api/videos:', error);
+    // Retourner un tableau vide plutôt qu'une erreur pour éviter les problèmes côté client
+    return NextResponse.json([], { status: 200 });
   }
 }
 
