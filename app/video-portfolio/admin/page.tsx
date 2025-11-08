@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import type { Video } from "@/lib/videos";
 
@@ -12,6 +12,12 @@ export default function AdminPage() {
   const [showForm, setShowForm] = useState(false);
   const [editingVideo, setEditingVideo] = useState<Video | null>(null);
   const [deletingIds, setDeletingIds] = useState<Set<string>>(new Set());
+  const deletingIdsRef = useRef<Set<string>>(new Set());
+  
+  // Synchroniser la ref avec le state
+  useEffect(() => {
+    deletingIdsRef.current = deletingIds;
+  }, [deletingIds]);
   const [formData, setFormData] = useState({
     title: "",
     platform: "youtube" as Video["platform"],
@@ -64,8 +70,11 @@ export default function AdminPage() {
       // Vérifier que data est un tableau
       if (Array.isArray(data)) {
         console.log('fetchVideos - Mise à jour de l\'état avec', data.length, 'vidéos');
+        // Filtrer les vidéos en cours de suppression pour éviter qu'elles réapparaissent
+        const filtered = data.filter(v => !deletingIdsRef.current.has(v.id));
+        console.log('fetchVideos - Après filtrage des suppressions:', filtered.length, 'vidéos');
         // Créer un nouveau tableau pour forcer React à détecter le changement
-        setVideos([...data]);
+        setVideos([...filtered]);
       } else {
         console.error('fetchVideos - Les données ne sont pas un tableau:', data);
         setVideos([]);
@@ -243,20 +252,19 @@ export default function AdminPage() {
       
       console.log('Vidéo supprimée avec succès côté serveur');
       
-      // Retirer de la liste des suppressions en cours
-      setDeletingIds(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(id);
-        return newSet;
-      });
+      // Ne pas rafraîchir immédiatement car KV peut avoir un délai de propagation
+      // La suppression optimiste a déjà retiré la vidéo de l'affichage
+      // On retirera l'ID de deletingIds après un délai pour permettre un rafraîchissement manuel si besoin
+      setTimeout(() => {
+        setDeletingIds(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(id);
+          console.log('ID retiré de deletingIds après délai');
+          return newSet;
+        });
+      }, 5000); // Attendre 5 secondes avant de permettre le rafraîchissement
       
-      // Attendre un peu pour s'assurer que la suppression est propagée dans KV
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Rafraîchir la liste pour s'assurer de la cohérence
-      await fetchVideos();
-      
-      console.log('Liste rafraîchie après suppression');
+      console.log('Suppression terminée. La vidéo restera cachée pendant 5 secondes.');
     } catch (error: any) {
       console.error("Erreur lors de la suppression:", error);
       // Retirer de la liste des suppressions en cours
@@ -435,7 +443,10 @@ export default function AdminPage() {
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {videos.map((video) => (
+          {(() => {
+            const filteredVideos = videos.filter(video => !deletingIds.has(video.id));
+            console.log('Affichage - Total vidéos:', videos.length, 'Après filtre:', filteredVideos.length, 'IDs en suppression:', Array.from(deletingIds));
+            return filteredVideos.map((video) => (
             <div
               key={video.id}
               className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
@@ -470,7 +481,8 @@ export default function AdminPage() {
                 Voir la vidéo →
               </a>
             </div>
-          ))}
+          ));
+          })()}
         </div>
 
         {videos.length === 0 && (
