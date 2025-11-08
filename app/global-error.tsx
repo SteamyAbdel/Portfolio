@@ -20,7 +20,7 @@ export default function GlobalError({
           <div className="text-center">
             <h2 className="text-2xl font-bold mb-4">Erreur globale</h2>
             <p className="text-gray-300 mb-6">
-              Une erreur critique s'est produite. Veuillez recharger la page.
+              Une erreur critique s&apos;est produite. Veuillez recharger la page.
             </p>
             <button
               onClick={() => reset()}

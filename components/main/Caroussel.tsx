@@ -2,6 +2,7 @@
 
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
+import Image from "next/image";
 
 const imgs = ["/certif/pix.png", "/certif/mooc.png", "/certif/classroom.png"];
 
@@ -49,7 +50,15 @@ const Modal = ({
         <button onClick={onClose} className="absolute top-2 right-2 text-black">
           X
         </button>
-        <img src={imgSrc} alt="Modal" className="max-w-full max-h-screen" />
+        <Image 
+          src={imgSrc} 
+          alt="Certification en grand format" 
+          width={800} 
+          height={600} 
+          className="max-w-full max-h-screen" 
+          priority={true}
+          quality={90}
+        />
       </div>
     </div>
   );
@@ -77,7 +86,7 @@ export default function SwipeCarousel() {
     }, AUTO_DELAY);
 
     return () => clearInterval(intervalRef);
-  }, []);
+  }, [dragX]);
 
   const onDragEnd = () => {
     const x = dragX.get();

@@ -16,9 +16,9 @@ export default function Error({
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#111] text-white">
       <div className="text-center">
-        <h2 className="text-2xl font-bold mb-4">Quelque chose s'est mal passé !</h2>
+        <h2 className="text-2xl font-bold mb-4">Quelque chose s&apos;est mal passé !</h2>
         <p className="text-gray-300 mb-6">
-          Une erreur inattendue s'est produite. Veuillez réessayer.
+          Une erreur inattendue s&apos;est produite. Veuillez réessayer.
         </p>
         <button
           onClick={() => reset()}
