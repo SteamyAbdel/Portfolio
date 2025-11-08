@@ -155,9 +155,16 @@ export function updateVideo(id: string, updates: Partial<Video>): Video | null |
 export async function deleteVideo(id: string): Promise<boolean>;
 export function deleteVideo(id: string): boolean | Promise<boolean>;
 export function deleteVideo(id: string): boolean | Promise<boolean> {
+  console.log('deleteVideo appelé avec ID:', id);
+  console.log('Environnement:', {
+    VERCEL: !!process.env.VERCEL,
+    KV_REST_API_URL: !!process.env.KV_REST_API_URL,
+  });
+  
   if (process.env.VERCEL && process.env.KV_REST_API_URL) {
     return (async () => {
       try {
+        console.log('Utilisation de KV pour la suppression');
         const { deleteVideoKV } = await import('./videos-kv');
         return await deleteVideoKV(id);
       } catch (error: any) {
@@ -168,13 +175,21 @@ export function deleteVideo(id: string): boolean | Promise<boolean> {
   }
   
   try {
+    console.log('Utilisation du système de fichiers pour la suppression');
     initDataFile();
     const videosResult = getVideos();
     const videos: Video[] = Array.isArray(videosResult) ? videosResult : [];
+    console.log('Vidéos existantes:', videos.length);
+    console.log('IDs des vidéos:', videos.map(v => v.id));
     const filtered = videos.filter(v => v.id !== id);
-    if (filtered.length === videos.length) return false;
+    console.log('Vidéos après filtrage:', filtered.length);
+    if (filtered.length === videos.length) {
+      console.log('Aucune vidéo trouvée avec l\'ID', id);
+      return false;
+    }
     
     fs.writeFileSync(dataFilePath, JSON.stringify(filtered, null, 2));
+    console.log('Vidéo supprimée avec succès du fichier');
     return true;
   } catch (error: any) {
     console.error('Erreur lors de la suppression de la vidéo:', error);

@@ -75,7 +75,15 @@ export async function DELETE(
   try {
     requireAuth(request);
 
+    console.log('DELETE /api/videos/' + params.id + ' - Début');
+    console.log('Environnement:', {
+      VERCEL: !!process.env.VERCEL,
+      KV_REST_API_URL: !!process.env.KV_REST_API_URL,
+    });
+
     const success = await deleteVideo(params.id);
+
+    console.log('Résultat de la suppression:', success);
 
     if (!success) {
       return NextResponse.json(
@@ -86,6 +94,9 @@ export async function DELETE(
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
+    console.error('Erreur DELETE /api/videos/' + params.id + ':', error);
+    console.error('Message:', error.message);
+    console.error('Stack:', error.stack);
     if (error.message === 'Non authentifié') {
       return NextResponse.json(
         { error: 'Non authentifié' },
@@ -93,7 +104,7 @@ export async function DELETE(
       );
     }
     return NextResponse.json(
-      { error: 'Erreur lors de la suppression de la vidéo' },
+      { error: 'Erreur lors de la suppression de la vidéo', details: error.message || String(error) },
       { status: 500 }
     );
   }

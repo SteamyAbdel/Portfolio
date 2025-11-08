@@ -95,13 +95,28 @@ export async function deleteVideoKV(id: string): Promise<boolean> {
     if (!process.env.KV_REST_API_URL) {
       throw new Error('KV_REST_API_URL n\'est pas configuré');
     }
+    
+    console.log('Suppression de la vidéo', id, 'depuis KV...');
     const videos = await getVideosKV();
+    console.log('Vidéos existantes avant suppression:', videos.length);
+    
     const filtered = videos.filter(v => v.id !== id);
-    if (filtered.length === videos.length) return false;
+    console.log('Vidéos après filtrage:', filtered.length);
+    
+    if (filtered.length === videos.length) {
+      console.log('Aucune vidéo trouvée avec l\'ID', id);
+      return false;
+    }
+    
+    console.log('Sauvegarde de', filtered.length, 'vidéos dans KV...');
     await kv.set('videos', filtered);
+    console.log('Vidéo supprimée avec succès de KV');
+    
     return true;
-  } catch (error) {
+  } catch (error: any) {
     console.error('Erreur lors de la suppression KV:', error);
+    console.error('Message:', error.message);
+    console.error('Stack:', error.stack);
     throw error;
   }
 }

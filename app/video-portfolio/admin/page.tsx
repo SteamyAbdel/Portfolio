@@ -184,12 +184,19 @@ export default function AdminPage() {
     if (!confirm("Êtes-vous sûr de vouloir supprimer cette vidéo ?")) return;
 
     try {
+      console.log('Suppression de la vidéo', id);
       const response = await fetch(`/api/videos/${id}`, { method: "DELETE" });
-      if (response.ok) {
-        fetchVideos();
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || errorData.details || "Erreur lors de la suppression");
       }
-    } catch (error) {
-      alert("Erreur lors de la suppression");
+      
+      console.log('Vidéo supprimée avec succès');
+      fetchVideos();
+    } catch (error: any) {
+      console.error("Erreur lors de la suppression:", error);
+      alert(error.message || "Erreur lors de la suppression");
     }
   };
 
