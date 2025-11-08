@@ -9,7 +9,6 @@ import Certif from "@/components/Certif";
 import Contact from "@/components/Contact";
 import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
-import VideoPortfolioSection from "@/components/VideoPortfolioSection";
 
 export default function Home() {
   return (
@@ -42,9 +41,6 @@ export default function Home() {
           </ParallaxElement>
           <ParallaxElement speed={0.2} direction="down">
             <Testimonials />
-          </ParallaxElement>
-          <ParallaxElement speed={0.3} direction="up">
-            <VideoPortfolioSection />
           </ParallaxElement>
           <ParallaxElement speed={0.4} direction="up">
             <Contact />
