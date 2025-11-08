@@ -8,7 +8,6 @@ import type { Video } from "@/lib/videos";
 export default function VideoPortfolioPage() {
   const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState<Video["platform"] | "all">("all");
 
   useEffect(() => {
     fetchVideos();
@@ -26,15 +25,10 @@ export default function VideoPortfolioPage() {
     }
   };
 
-  const filteredVideos =
-    filter === "all"
-      ? videos
-      : videos.filter((video) => video.platform === filter);
-
   const getPlatformIcon = (platform: Video["platform"]) => {
     switch (platform) {
       case "youtube":
-        return "📺";
+        return "▶️";
       case "tiktok":
         return "🎵";
       case "instagram":
@@ -44,231 +38,309 @@ export default function VideoPortfolioPage() {
     }
   };
 
-  const getPlatformName = (platform: Video["platform"]) => {
+  const getPlatformColor = (platform: Video["platform"]) => {
     switch (platform) {
       case "youtube":
-        return "YouTube";
+        return "bg-red-500";
       case "tiktok":
-        return "TikTok";
+        return "bg-black";
       case "instagram":
-        return "Instagram";
+        return "bg-gradient-to-r from-purple-500 to-orange-400";
       default:
-        return "Plateforme";
+        return "bg-gray-500";
     }
   };
 
-  const getEmbedUrl = (url: string, platform: Video["platform"]) => {
-    if (platform === "youtube") {
-      const videoId = url.match(
-        /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
-      )?.[1];
-      return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
-    }
-    return url;
-  };
+  // Grouper les vidéos par type (pour l'instant, on affiche toutes)
+  const videoTypes = [
+    { id: "gaming", name: "Gaming / Best Of", icon: "🎮" },
+    { id: "vlog", name: "Vlog / IRL", icon: "📹" },
+    { id: "teaser", name: "Teaser", icon: "🎬" },
+  ];
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#111] text-white">
+      <div className="min-h-screen flex items-center justify-center bg-white">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-          <p>Chargement...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black mx-auto mb-4"></div>
+          <p className="text-black">Chargement...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#111] text-white py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Hero Section - Mise en avant pour les clients */}
-        <div className="text-center mb-16">
-          <div className="inline-block mb-6">
-            <span className="text-6xl">🎬</span>
-          </div>
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            Portfolio Montage Vidéo
-          </h1>
-          <p className="text-gray-300 text-xl md:text-2xl max-w-3xl mx-auto mb-8 leading-relaxed">
-            Découvrez mes réalisations professionnelles en montage vidéo sur{" "}
-            <span className="text-white font-semibold">YouTube</span>,{" "}
-            <span className="text-white font-semibold">TikTok</span> et{" "}
-            <span className="text-white font-semibold">Instagram</span>
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
-              <p className="text-sm text-gray-400 mb-1">Spécialisé en</p>
-              <p className="text-lg font-semibold">Montage Professionnel</p>
+    <div className="min-h-screen bg-white text-black py-12 px-4 sm:px-6 md:px-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          {/* Colonne Gauche - Profil */}
+          <div className="space-y-6">
+            {/* Photo de profil centrée */}
+            <div className="flex justify-center">
+              <div className="relative w-40 h-40">
+                <Image
+                  src="/Me.png"
+                  alt="Abdel / Steamy Cut & Create Studio"
+                  width={160}
+                  height={160}
+                  className="rounded-full object-cover border-2 border-gray-200"
+                  priority
+                />
+              </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
-              <p className="text-sm text-gray-400 mb-1">Plateformes</p>
-              <p className="text-lg font-semibold">YouTube • TikTok • Instagram</p>
+
+            {/* Nom et Titre */}
+            <div className="text-center">
+              <h1 className="text-2xl sm:text-3xl font-bold mb-2 leading-tight">
+                Abdel / Steamy Cut & Create Studio
+              </h1>
+              <p className="text-gray-600 text-base sm:text-lg">Monteur vidéo free-lance</p>
+            </div>
+
+            {/* Compétences */}
+            <div className="flex items-center gap-2 text-gray-700">
+              <span className="text-xl">🖥️</span>
+              <span>Suite adobe, C4D, Blender</span>
+            </div>
+
+            {/* Localisation */}
+            <div className="flex items-center gap-2 text-gray-700">
+              <span className="text-red-500">📍</span>
+              <span>Poitiers, France</span>
+            </div>
+
+            {/* Work With */}
+            <div>
+              <h3 className="font-semibold mb-3">Work with:</h3>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <span className="text-black">▶</span>
+                  <span className="text-gray-700">@Prince</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-black">▶</span>
+                  <span className="text-gray-700">@Guissepa</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-black">▶</span>
+                  <span className="text-gray-700">@Paga</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-black">▶</span>
+                  <span className="text-gray-700">@humanitarian_fp</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Bouton retour */}
+            <div className="pt-4">
+              <Link
+                href="/"
+                className="text-gray-500 hover:text-black text-sm transition-colors"
+              >
+                ← Retour au portfolio principal
+              </Link>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="mailto:abdelali.noureddine86@gmail.com"
-              className="bg-white text-black hover:bg-gray-200 font-semibold py-3 px-8 rounded-full transition-all duration-200 shadow-lg hover:scale-105"
-            >
-              📧 Me Contacter pour un Projet
-            </a>
-            <Link
-              href="/"
-              className="bg-transparent hover:bg-white text-white font-semibold hover:text-black py-3 px-8 rounded-full border-2 border-white hover:border-transparent transition-all duration-200"
-            >
-              Voir mon Portfolio Principal
-            </Link>
-          </div>
-        </div>
 
-        {/* Filtres */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          <button
-            onClick={() => setFilter("all")}
-            className={`px-6 py-2 rounded-full font-medium transition-all ${
-              filter === "all"
-                ? "bg-white text-black"
-                : "bg-white/10 text-gray-300 hover:bg-white/20"
-            }`}
-          >
-            Tous
-          </button>
-          {(["youtube", "tiktok", "instagram"] as const).map(
-            (platform) => (
-              <button
-                key={platform}
-                onClick={() => setFilter(platform)}
-                className={`px-6 py-2 rounded-full font-medium transition-all ${
-                  filter === platform
-                    ? "bg-white text-black"
-                    : "bg-white/10 text-gray-300 hover:bg-white/20"
-                }`}
-              >
-                {getPlatformIcon(platform)} {getPlatformName(platform)}
-              </button>
-            )
-          )}
-        </div>
-
-        {/* Grille de vidéos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredVideos.map((video) => (
-            <div
-              key={video.id}
-              className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-all group"
-            >
-              {/* Thumbnail ou iframe */}
-              <a
-                href={video.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block relative mb-4 rounded-lg overflow-hidden aspect-video bg-black/20 group/thumb"
-              >
-                {video.platform === "youtube" ? (
-                  <iframe
-                    src={getEmbedUrl(video.url, video.platform)}
-                    className="w-full h-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title={video.title}
-                  />
-                ) : video.thumbnail ? (
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={video.thumbnail}
-                      alt={video.title}
-                      fill
-                      className="object-cover group-hover/thumb:scale-110 transition-transform duration-300"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-black/40 group-hover/thumb:bg-black/20 transition-colors flex items-center justify-center">
-                      <div className="text-white text-4xl opacity-80 group-hover/thumb:opacity-100 transition-opacity">
-                        ▶️
+          {/* Colonne Droite - Contenu */}
+          <div className="space-y-8">
+            {/* Mes Réseaux */}
+            <div>
+              <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+                <span>🖥️</span>
+                <span>Mes Réseaux</span>
+              </h2>
+              <div className="grid grid-cols-1 gap-4">
+                {/* Twitter */}
+                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center text-white text-xl">
+                        🐦
+                      </div>
+                      <div>
+                        <p className="font-semibold text-base">Twitter</p>
+                        <p className="text-sm text-gray-600">@AbdelNRD</p>
                       </div>
                     </div>
                   </div>
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-6xl bg-gradient-to-br from-purple-500/20 to-orange-400/20 group-hover/thumb:from-purple-500/30 group-hover/thumb:to-orange-400/30 transition-all">
-                    {getPlatformIcon(video.platform)}
+                  <a
+                    href="https://twitter.com/AbdelNRD"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-blue-500 text-white text-center py-2.5 rounded-lg hover:bg-blue-600 transition-colors font-medium text-sm"
+                  >
+                    Follow
+                  </a>
+                </div>
+
+                {/* YouTube */}
+                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center text-white text-xl">
+                        ▶️
+                      </div>
+                      <div>
+                        <p className="font-semibold text-base">Cut & Create Studio</p>
+                        <p className="text-sm text-gray-600">YouTube</p>
+                      </div>
+                    </div>
                   </div>
-                )}
-              </a>
+                  <a
+                    href="https://youtube.com/@cutncreatestudio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-red-500 text-white text-center py-2.5 rounded-lg hover:bg-red-600 transition-colors font-medium text-sm"
+                  >
+                    Subscribe
+                  </a>
+                </div>
 
-              {/* Info */}
-              <div className="flex items-start justify-between mb-2">
-                <div className="text-2xl">{getPlatformIcon(video.platform)}</div>
-                <span className="text-xs text-gray-400 bg-white/10 px-2 py-1 rounded">
-                  {getPlatformName(video.platform)}
-                </span>
+                {/* Instagram */}
+                <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-orange-400 rounded-lg flex items-center justify-center text-white text-xl">
+                        📷
+                      </div>
+                      <div>
+                        <p className="font-semibold text-base">@cutncreatestudio</p>
+                        <p className="text-sm text-gray-600">Instagram</p>
+                      </div>
+                    </div>
+                  </div>
+                  <a
+                    href="https://instagram.com/cutncreatestudio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-blue-500 text-white text-center py-2.5 rounded-lg hover:bg-blue-600 transition-colors font-medium text-sm"
+                  >
+                    Follow
+                  </a>
+                </div>
               </div>
-
-              <h3 className="text-xl font-bold mb-2 group-hover:text-purple-300 transition-colors">
-                {video.title}
-              </h3>
-              {video.channelName && (
-                <p className="text-gray-400 text-sm mb-2 flex items-center gap-1">
-                  <span>📺</span>
-                  <span>{video.channelName}</span>
-                </p>
-              )}
-              <p className="text-gray-300 text-sm mb-4 line-clamp-2">
-                {video.description}
-              </p>
-
-              <a
-                href={video.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
-              >
-                Voir sur {getPlatformName(video.platform)} →
-              </a>
             </div>
-          ))}
-        </div>
 
-        {filteredVideos.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-400 text-lg">
-              {filter === "all"
-                ? "Aucune vidéo pour le moment."
-                : `Aucune vidéo ${getPlatformName(filter as Video["platform"])} pour le moment.`}
-            </p>
-          </div>
-        )}
-
-        {/* Section CTA pour les clients */}
-        {videos.length > 0 && (
-          <div className="mt-20 mb-12">
-            <div className="bg-gradient-to-r from-purple-500/20 to-orange-400/20 backdrop-blur-sm rounded-3xl p-12 border border-white/20 text-center">
-              <h2 className="text-4xl font-bold mb-4">
-                Besoin d&apos;un Monteur Vidéo ?
-              </h2>
-              <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-                Je crée des vidéos professionnelles pour YouTube, TikTok et Instagram.
-                Contactez-moi pour discuter de votre projet !
-              </p>
-              <a
-                href="mailto:abdelali.noureddine86@gmail.com"
-                className="inline-block bg-white text-black hover:bg-gray-200 font-semibold py-4 px-10 rounded-full transition-all duration-200 shadow-lg hover:scale-105 text-lg"
-              >
-                📧 Demander un Devis Gratuit
-              </a>
+            {/* Portfolio par type de vidéos */}
+            <div>
+              <h2 className="text-xl font-bold mb-4">Portfolio par type de vidéos :</h2>
+              <div className="grid grid-cols-1 gap-3">
+                {videoTypes.map((type) => (
+                  <Link
+                    key={type.id}
+                    href={`/video-portfolio?type=${type.id}`}
+                    className="flex items-center gap-3 bg-pink-50 hover:bg-pink-100 rounded-xl p-4 border border-pink-200 transition-all group cursor-pointer"
+                  >
+                    <span className="text-xl">{getPlatformIcon("youtube")}</span>
+                    <span className="font-medium text-base group-hover:text-pink-600 transition-colors">
+                      {type.name}
+                    </span>
+                    <span className="ml-auto text-gray-400 group-hover:text-gray-600 transition-colors">
+                      →
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
 
-        {/* Footer */}
-        <div className="mt-12 text-center border-t border-white/10 pt-8">
-          <Link
-            href="/"
-            className="text-gray-400 hover:text-white transition-colors inline-flex items-center gap-2"
-          >
-            ← Retour au portfolio principal
-          </Link>
+            {/* Ils me font confiance */}
+            <div>
+              <h2 className="text-xl font-bold mb-4">Ils me font confiance :</h2>
+              <div className="grid grid-cols-3 gap-3">
+                {/* Client 1 - Prince */}
+                <a
+                  href="#"
+                  className="relative group"
+                >
+                  <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden border border-gray-200 hover:border-gray-300 transition-colors">
+                    <div className="w-full h-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                      <span className="text-4xl">👤</span>
+                    </div>
+                    <div className="absolute top-2 right-2 w-5 h-5 bg-black/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-white text-xs">→</span>
+                    </div>
+                  </div>
+                  <p className="text-center text-sm mt-2 font-medium">Prince</p>
+                </a>
+
+                {/* Client 2 - Guissepa & Paga */}
+                <a
+                  href="#"
+                  className="relative group"
+                >
+                  <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden border border-gray-200 hover:border-gray-300 transition-colors">
+                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                      <span className="text-4xl">👥</span>
+                    </div>
+                    <div className="absolute top-2 right-2 w-5 h-5 bg-black/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-white text-xs">→</span>
+                    </div>
+                  </div>
+                  <p className="text-center text-sm mt-2 font-medium">Guissepa & Paga</p>
+                </a>
+
+                {/* Client 3 - Humanitarian FP */}
+                <a
+                  href="#"
+                  className="relative group"
+                >
+                  <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden border border-gray-200 hover:border-gray-300 transition-colors">
+                    <div className="w-full h-full bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                      <span className="text-3xl">🌍</span>
+                    </div>
+                    <div className="absolute top-2 right-2 w-5 h-5 bg-black/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-white text-xs">→</span>
+                    </div>
+                  </div>
+                  <p className="text-center text-sm mt-2 font-medium">humanitarian_fp</p>
+                </a>
+              </div>
+            </div>
+
+            {/* Liste des vidéos récentes */}
+            {videos.length > 0 && (
+              <div>
+                <h2 className="text-xl font-bold mb-4">Vidéos récentes :</h2>
+                <div className="space-y-3">
+                  {videos.slice(0, 5).map((video) => (
+                    <a
+                      key={video.id}
+                      href={video.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block bg-white rounded-xl p-4 border border-gray-200 hover:border-gray-300 hover:shadow-md transition-all group"
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className={`w-12 h-12 ${getPlatformColor(video.platform)} rounded-lg flex items-center justify-center text-white text-lg flex-shrink-0`}>
+                          {getPlatformIcon(video.platform)}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-base mb-1 group-hover:text-blue-600 transition-colors line-clamp-1">
+                            {video.title}
+                          </h3>
+                          {video.channelName && (
+                            <p className="text-sm text-gray-600 mb-1">
+                              {video.channelName}
+                            </p>
+                          )}
+                          <p className="text-sm text-gray-500 line-clamp-1">
+                            {video.description}
+                          </p>
+                        </div>
+                        <span className="text-gray-400 group-hover:text-gray-600 transition-colors text-lg">
+                          →
+                        </span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
 }
-
