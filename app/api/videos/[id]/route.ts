@@ -8,7 +8,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const video = getVideoById(params.id);
+    const video = await getVideoById(params.id);
     
     if (!video) {
       return NextResponse.json(
@@ -37,7 +37,7 @@ export async function PUT(
     const body = await request.json();
     const { title, platform, url, thumbnail, channelName } = body;
 
-    const video = updateVideo(params.id, {
+    const video = await updateVideo(params.id, {
       title,
       platform,
       url,
@@ -75,7 +75,7 @@ export async function DELETE(
   try {
     requireAuth(request);
 
-    const success = deleteVideo(params.id);
+    const success = await deleteVideo(params.id);
 
     if (!success) {
       return NextResponse.json(

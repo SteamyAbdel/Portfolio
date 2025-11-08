@@ -5,7 +5,7 @@ import { requireAuth } from '@/lib/auth';
 // GET - Récupérer toutes les vidéos (public)
 export async function GET() {
   try {
-    const videos = getVideos();
+    const videos = await getVideos();
     
     // S'assurer que videos est toujours un tableau
     if (!Array.isArray(videos)) {
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
 
     console.log('Données à ajouter:', videoData);
 
-    const video = addVideo(videoData);
+    const video = await addVideo(videoData);
 
     return NextResponse.json(video, { status: 201 });
   } catch (error: any) {

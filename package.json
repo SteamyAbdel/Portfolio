@@ -12,6 +12,7 @@
     "lighthouse": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html"
   },
   "dependencies": {
+    "@vercel/kv": "^3.0.0",
     "@vercel/speed-insights": "^1.0.14",
     "bcryptjs": "^3.0.3",
     "framer-motion": "^11.2.5",
