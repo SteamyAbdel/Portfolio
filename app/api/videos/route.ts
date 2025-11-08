@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getVideos, addVideo } from '@/lib/videos';
+import { getVideos, addVideo, type Video } from '@/lib/videos';
 import { requireAuth } from '@/lib/auth';
 
 // GET - Récupérer toutes les vidéos (public)
@@ -27,7 +27,10 @@ export async function POST(request: NextRequest) {
     requireAuth(request);
 
     const body = await request.json();
+    // Ignorer description si elle est envoyée
     const { title, platform, url, thumbnail, channelName } = body;
+
+    console.log('Données reçues:', { title, platform, url, thumbnail, channelName });
 
     if (!title || !platform || !url) {
       return NextResponse.json(
@@ -36,17 +39,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const video = addVideo({
-      title,
+    const videoData: Omit<Video, 'id' | 'createdAt' | 'updatedAt'> = {
+      title: title.trim(),
       platform,
-      url,
-      thumbnail: thumbnail || '',
-      channelName: channelName || '',
-    });
+      url: url.trim(),
+      thumbnail: thumbnail?.trim() || '',
+      channelName: channelName?.trim() || '',
+    };
+
+    console.log('Données à ajouter:', videoData);
+
+    const video = addVideo(videoData);
 
     return NextResponse.json(video, { status: 201 });
   } catch (error: any) {
     console.error('Erreur POST /api/videos:', error);
+    console.error('Stack:', error.stack);
     if (error.message === 'Non authentifié') {
       return NextResponse.json(
         { error: 'Non authentifié' },
@@ -54,7 +62,7 @@ export async function POST(request: NextRequest) {
       );
     }
     return NextResponse.json(
-      { error: 'Erreur lors de l\'ajout de la vidéo', details: error.message },
+      { error: 'Erreur lors de l\'ajout de la vidéo', details: error.message || String(error) },
       { status: 500 }
     );
   }

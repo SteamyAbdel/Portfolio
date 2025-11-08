@@ -67,13 +67,25 @@ export default function AdminPage() {
         : "/api/videos";
       const method = editingVideo ? "PUT" : "POST";
 
+      // Préparer les données sans description
+      const dataToSend = {
+        title: formData.title,
+        platform: formData.platform,
+        url: formData.url,
+        thumbnail: formData.thumbnail,
+        channelName: formData.channelName,
+      };
+
       const response = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(dataToSend),
       });
 
-      if (!response.ok) throw new Error("Erreur");
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || errorData.details || "Erreur lors de l'enregistrement");
+      }
 
       setShowForm(false);
       setEditingVideo(null);
@@ -86,8 +98,9 @@ export default function AdminPage() {
         channelName: "",
       });
       fetchVideos();
-    } catch (error) {
-      alert("Erreur lors de l'enregistrement");
+    } catch (error: any) {
+      console.error("Erreur lors de l'enregistrement:", error);
+      alert(error.message || "Erreur lors de l'enregistrement");
     }
   };
 
