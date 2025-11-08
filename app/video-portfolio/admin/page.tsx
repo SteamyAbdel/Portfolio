@@ -370,9 +370,6 @@ export default function AdminPage() {
               {video.channelName && (
                 <p className="text-gray-400 text-sm mb-2">📺 {video.channelName}</p>
               )}
-              {video.description && (
-                <p className="text-gray-300 text-sm mb-4">{video.description}</p>
-              )}
               <a
                 href={video.url}
                 target="_blank"
