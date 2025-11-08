@@ -11,6 +11,7 @@ export default function AdminPage() {
   const [authenticated, setAuthenticated] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [editingVideo, setEditingVideo] = useState<Video | null>(null);
+  const [deletingIds, setDeletingIds] = useState<Set<string>>(new Set());
   const [formData, setFormData] = useState({
     title: "",
     platform: "youtube" as Video["platform"],
@@ -43,11 +44,35 @@ export default function AdminPage() {
 
   const fetchVideos = async () => {
     try {
-      const response = await fetch("/api/videos");
+      console.log('fetchVideos - Début');
+      // Forcer un rafraîchissement sans cache
+      const response = await fetch("/api/videos", {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Erreur HTTP: ${response.status}`);
+      }
+      
       const data = await response.json();
-      setVideos(data);
+      console.log('fetchVideos - Données reçues:', data);
+      console.log('fetchVideos - Nombre de vidéos:', Array.isArray(data) ? data.length : 'N/A');
+      
+      // Vérifier que data est un tableau
+      if (Array.isArray(data)) {
+        console.log('fetchVideos - Mise à jour de l\'état avec', data.length, 'vidéos');
+        // Créer un nouveau tableau pour forcer React à détecter le changement
+        setVideos([...data]);
+      } else {
+        console.error('fetchVideos - Les données ne sont pas un tableau:', data);
+        setVideos([]);
+      }
     } catch (error) {
       console.error("Erreur lors de la récupération des vidéos:", error);
+      setVideos([]);
     } finally {
       setLoading(false);
     }
@@ -185,17 +210,63 @@ export default function AdminPage() {
 
     try {
       console.log('Suppression de la vidéo', id);
-      const response = await fetch(`/api/videos/${id}`, { method: "DELETE" });
+      
+      // Marquer la vidéo comme en cours de suppression
+      setDeletingIds(prev => new Set(prev).add(id));
+      
+      // Suppression optimiste : retirer immédiatement de l'affichage
+      setVideos(prevVideos => {
+        const filtered = prevVideos.filter(v => v.id !== id);
+        console.log('Vidéo retirée de l\'affichage. Ancien nombre:', prevVideos.length, 'Nouveau nombre:', filtered.length);
+        return filtered;
+      });
+      
+      const response = await fetch(`/api/videos/${id}`, { 
+        method: "DELETE",
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
+      });
       
       if (!response.ok) {
         const errorData = await response.json();
+        // En cas d'erreur, restaurer la liste
+        setDeletingIds(prev => {
+          const newSet = new Set(prev);
+          newSet.delete(id);
+          return newSet;
+        });
+        await fetchVideos();
         throw new Error(errorData.error || errorData.details || "Erreur lors de la suppression");
       }
       
-      console.log('Vidéo supprimée avec succès');
-      fetchVideos();
+      console.log('Vidéo supprimée avec succès côté serveur');
+      
+      // Retirer de la liste des suppressions en cours
+      setDeletingIds(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(id);
+        return newSet;
+      });
+      
+      // Attendre un peu pour s'assurer que la suppression est propagée dans KV
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Rafraîchir la liste pour s'assurer de la cohérence
+      await fetchVideos();
+      
+      console.log('Liste rafraîchie après suppression');
     } catch (error: any) {
       console.error("Erreur lors de la suppression:", error);
+      // Retirer de la liste des suppressions en cours
+      setDeletingIds(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(id);
+        return newSet;
+      });
+      // En cas d'erreur, restaurer la liste complète
+      await fetchVideos();
       alert(error.message || "Erreur lors de la suppression");
     }
   };

@@ -85,13 +85,6 @@ export default function VideoPortfolioPage() {
     }
   };
 
-  // Types de vidéos
-  const videoTypes = [
-    { id: "gaming", name: "Gaming / Best Of", icon: "🎮" },
-    { id: "vlog", name: "Vlog / IRL", icon: "📹" },
-    { id: "teaser", name: "Teaser", icon: "🎬" },
-  ];
-
   // Clients/Collaborateurs
   const clients = [
     { name: "Prince", handle: "@Prince" },
@@ -254,28 +247,6 @@ export default function VideoPortfolioPage() {
                     Follow
                   </a>
                 </div>
-              </div>
-            </div>
-
-            {/* Portfolio par type de vidéos */}
-            <div>
-              <h2 className="text-xl font-bold mb-4">Portfolio par type de vidéos :</h2>
-              <div className="grid grid-cols-1 gap-3">
-                {videoTypes.map((type) => (
-                  <button
-                    key={type.id}
-                    onClick={() => setVideoType(videoType === type.id ? null : type.id)}
-                    className="flex items-center gap-3 bg-pink-50 dark:bg-pink-900/20 hover:bg-pink-100 dark:hover:bg-pink-900/30 rounded-xl p-4 border border-pink-200 dark:border-pink-800 transition-all group cursor-pointer text-left w-full"
-                  >
-                    <span className="text-xl">{getPlatformIcon("youtube")}</span>
-                    <span className="font-medium text-base group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
-                      {type.name}
-                    </span>
-                    <span className="ml-auto text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
-                      →
-                    </span>
-                  </button>
-                ))}
               </div>
             </div>
 
