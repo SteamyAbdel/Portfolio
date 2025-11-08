@@ -5,7 +5,15 @@ import { requireAuth } from '@/lib/auth';
 // GET - Récupérer toutes les vidéos (public)
 export async function GET() {
   try {
+    console.log('GET /api/videos - Début');
+    console.log('Environnement:', {
+      VERCEL: !!process.env.VERCEL,
+      KV_REST_API_URL: !!process.env.KV_REST_API_URL,
+    });
+    
     const videos = await getVideos();
+    
+    console.log('Vidéos récupérées:', videos?.length || 0, 'vidéos');
     
     // S'assurer que videos est toujours un tableau
     if (!Array.isArray(videos)) {
@@ -13,9 +21,11 @@ export async function GET() {
       return NextResponse.json([], { status: 200 });
     }
     
+    console.log('Retour de', videos.length, 'vidéos');
     return NextResponse.json(videos);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Erreur dans GET /api/videos:', error);
+    console.error('Stack:', error.stack);
     // Retourner un tableau vide plutôt qu'une erreur pour éviter les problèmes côté client
     return NextResponse.json([], { status: 200 });
   }

@@ -6,12 +6,30 @@ import { kv } from '@vercel/kv';
 export async function getVideosKV(): Promise<Video[]> {
   try {
     if (!process.env.KV_REST_API_URL) {
+      console.error('KV_REST_API_URL n\'est pas configuré');
       throw new Error('KV_REST_API_URL n\'est pas configuré');
     }
+    
+    console.log('Récupération des vidéos depuis KV...');
     const videos = await kv.get<Video[]>('videos');
-    return Array.isArray(videos) ? videos : [];
-  } catch (error) {
+    console.log('Vidéos récupérées depuis KV:', videos ? `${Array.isArray(videos) ? videos.length : 'non-array'}` : 'null');
+    
+    if (!videos) {
+      console.log('Aucune vidéo trouvée dans KV, retour d\'un tableau vide');
+      return [];
+    }
+    
+    if (!Array.isArray(videos)) {
+      console.error('Les données KV ne sont pas un tableau:', typeof videos, videos);
+      return [];
+    }
+    
+    console.log(`Retour de ${videos.length} vidéos depuis KV`);
+    return videos;
+  } catch (error: any) {
     console.error('Erreur KV getVideos:', error);
+    console.error('Message:', error.message);
+    console.error('Stack:', error.stack);
     return [];
   }
 }
@@ -21,18 +39,30 @@ export async function addVideoKV(video: Omit<Video, 'id' | 'createdAt' | 'update
     if (!process.env.KV_REST_API_URL) {
       throw new Error('KV_REST_API_URL n\'est pas configuré');
     }
+    
+    console.log('Ajout d\'une vidéo dans KV...');
     const videos = await getVideosKV();
+    console.log('Vidéos existantes:', videos.length);
+    
     const newVideo: Video = {
       ...video,
       id: Date.now().toString(),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };
+    
+    console.log('Nouvelle vidéo à ajouter:', newVideo);
     videos.push(newVideo);
+    
+    console.log('Sauvegarde de', videos.length, 'vidéos dans KV...');
     await kv.set('videos', videos);
+    console.log('Vidéo ajoutée avec succès dans KV');
+    
     return newVideo;
-  } catch (error) {
+  } catch (error: any) {
     console.error('Erreur lors de l\'ajout KV:', error);
+    console.error('Message:', error.message);
+    console.error('Stack:', error.stack);
     throw error;
   }
 }

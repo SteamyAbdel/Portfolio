@@ -16,16 +16,23 @@ export default function VideoPortfolioPage() {
 
   const fetchVideos = async () => {
     try {
+      console.log('Fetch des vidéos depuis /api/videos...');
       const response = await fetch("/api/videos");
+      
+      console.log('Réponse reçue:', response.status, response.statusText);
       
       if (!response.ok) {
         throw new Error(`Erreur HTTP: ${response.status}`);
       }
       
       const data = await response.json();
+      console.log('Données reçues:', data);
+      console.log('Type de données:', Array.isArray(data) ? 'Array' : typeof data);
+      console.log('Nombre de vidéos:', Array.isArray(data) ? data.length : 'N/A');
       
       // Vérifier que data est un tableau
       if (Array.isArray(data)) {
+        console.log(`Affichage de ${data.length} vidéos`);
         setVideos(data);
       } else {
         console.error("Les données reçues ne sont pas un tableau:", data);
@@ -304,9 +311,9 @@ export default function VideoPortfolioPage() {
             </div>
 
             {/* Liste des vidéos récentes */}
-            {videos.length > 0 && (
-              <div>
-                <h2 className="text-xl font-bold mb-4">Vidéos récentes :</h2>
+            <div>
+              <h2 className="text-xl font-bold mb-4">Vidéos récentes :</h2>
+              {videos.length > 0 ? (
                 <div className="space-y-3">
                   {videos.slice(0, 5).map((video) => (
                     <a
@@ -342,8 +349,14 @@ export default function VideoPortfolioPage() {
                     </a>
                   ))}
                 </div>
-              </div>
-            )}
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-gray-500 dark:text-gray-400">
+                    Aucune vidéo pour le moment. Ajoutez-en depuis l&apos;interface admin.
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
