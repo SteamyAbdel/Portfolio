@@ -39,7 +39,7 @@ export async function PUT(
 
     const video = updateVideo(params.id, {
       title,
-      description,
+      description: description !== undefined ? description : undefined,
       platform,
       url,
       thumbnail,

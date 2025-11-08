@@ -329,9 +329,11 @@ export default function VideoPortfolioPage() {
                               {video.channelName}
                             </p>
                           )}
-                          <p className="text-sm text-gray-500 dark:text-gray-500 line-clamp-1">
-                            {video.description}
-                          </p>
+                          {video.description && (
+                            <p className="text-sm text-gray-500 dark:text-gray-500 line-clamp-1">
+                              {video.description}
+                            </p>
+                          )}
                         </div>
                         <span className="text-gray-400 dark:text-gray-500 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors text-lg">
                           →

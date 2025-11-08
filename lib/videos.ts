@@ -4,7 +4,7 @@ import path from 'path';
 export interface Video {
   id: string;
   title: string;
-  description: string;
+  description?: string;
   platform: 'youtube' | 'tiktok' | 'instagram';
   url: string;
   thumbnail?: string;

@@ -13,7 +13,6 @@ export default function AdminPage() {
   const [editingVideo, setEditingVideo] = useState<Video | null>(null);
   const [formData, setFormData] = useState({
     title: "",
-    description: "",
     platform: "youtube" as Video["platform"],
     url: "",
     thumbnail: "",
@@ -81,7 +80,6 @@ export default function AdminPage() {
       setAutoExtractEnabled(true); // Réactiver l'auto-extract
       setFormData({
         title: "",
-        description: "",
         platform: "youtube",
         url: "",
         thumbnail: "",
@@ -98,7 +96,6 @@ export default function AdminPage() {
     setAutoExtractEnabled(false); // Désactiver l'auto-extract en mode édition
     setFormData({
       title: video.title,
-      description: video.description,
       platform: video.platform,
       url: video.url,
       thumbnail: video.thumbnail || "",
@@ -323,21 +320,6 @@ export default function AdminPage() {
 
               <div>
                 <label className="block text-sm font-medium mb-2">
-                  Description
-                </label>
-                <textarea
-                  value={formData.description}
-                  onChange={(e) =>
-                    setFormData({ ...formData, description: e.target.value })
-                  }
-                  className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white"
-                  rows={3}
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium mb-2">
                   Miniature (optionnel)
                 </label>
                 <input
@@ -388,7 +370,9 @@ export default function AdminPage() {
               {video.channelName && (
                 <p className="text-gray-400 text-sm mb-2">📺 {video.channelName}</p>
               )}
-              <p className="text-gray-300 text-sm mb-4">{video.description}</p>
+              {video.description && (
+                <p className="text-gray-300 text-sm mb-4">{video.description}</p>
+              )}
               <a
                 href={video.url}
                 target="_blank"

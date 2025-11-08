@@ -29,16 +29,16 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { title, description, platform, url, thumbnail, channelName } = body;
 
-    if (!title || !description || !platform || !url) {
+    if (!title || !platform || !url) {
       return NextResponse.json(
-        { error: 'Tous les champs sont requis' },
+        { error: 'Le titre, la plateforme et l\'URL sont requis' },
         { status: 400 }
       );
     }
 
     const video = addVideo({
       title,
-      description,
+      description: description || undefined,
       platform,
       url,
       thumbnail: thumbnail || '',
