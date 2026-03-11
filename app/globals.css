@@ -154,6 +154,54 @@
   opacity: 0.3;
 }
 
+/* Loader */
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  transition: opacity 0.5s ease;
+}
+
+.loader-screen--fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-chip {
+  width: min(90vw, 500px);
+}
+
+.trace-bg {
+  stroke: #333;
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.trace-flow {
+  stroke-width: 1.8;
+  fill: none;
+  stroke-dasharray: 40 400;
+  stroke-dashoffset: 438;
+  filter: drop-shadow(0 0 6px currentColor);
+  animation: traceFlow 3s cubic-bezier(0.5, 0, 0.9, 1) infinite;
+}
+
+.trace-flow.yellow { stroke: #ffea00; color: #ffea00; }
+.trace-flow.blue   { stroke: #00ccff; color: #00ccff; }
+.trace-flow.green  { stroke: #00ff15; color: #00ff15; }
+.trace-flow.purple { stroke: #9900ff; color: #9900ff; }
+.trace-flow.red    { stroke: #ff3300; color: #ff3300; }
+
+@keyframes traceFlow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 /* BB8 Toggle */
 .bb8-toggle {
   --toggle-size: 7px;

@@ -9,6 +9,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import InteractiveParticles from "@/components/InteractiveParticles";
 import ScrollProgress from "@/components/ScrollProgress";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
+import Loader from "@/components/Loader";
 
 const inter = Inter({ subsets: ["latin"] });
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-abdelali.com/";
@@ -96,13 +97,15 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <StarsCanvas />
-          <InteractiveParticles />
-          <ScrollProgress />
-          <Navbar />
-          {children}
-          <SpeedInsights />
-          <PerformanceMonitor />
+          <Loader>
+            <StarsCanvas />
+            <InteractiveParticles />
+            <ScrollProgress />
+            <Navbar />
+            {children}
+            <SpeedInsights />
+            <PerformanceMonitor />
+          </Loader>
         </ThemeProvider>
       </body>
     </html>
