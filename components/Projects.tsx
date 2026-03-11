@@ -144,8 +144,8 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Grille des projets */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
-          {getFilteredProjects().map((project, index) => (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
+          {getFilteredProjects().map((project) => (
             <div
               key={project.id}
               className="group"
@@ -156,61 +156,48 @@ const Projects: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border border-white/10 hover:border-white/30 transition-all duration-500 h-full group-hover:bg-white/10 group-hover:shadow-2xl group-hover:shadow-purple-500/10 group-hover:-translate-y-2">
-                  
-                  {/* Image du projet */}
-                  <div className="relative mb-6 sm:mb-8 overflow-hidden rounded-2xl">
-                    <div className="aspect-video relative">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        quality={85}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
-                  </div>
-
-                  {/* Contenu du projet */}
-                  <div className="space-y-4 sm:space-y-6">
-                    {/* Titre */}
-                    <h3 className="text-white font-bold text-xl sm:text-2xl lg:text-3xl group-hover:text-purple-300 transition-colors duration-300">
-                      {project.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
-                      {project.description}
-                    </p>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2 sm:gap-3">
-                      {project.skills.map((skill, skillIndex) => (
-                        <span
-                          key={skillIndex}
-                          className="bg-white/10 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl p-5 sm:p-6 border border-white/10 hover:border-white/30 transition-all duration-500 h-full group-hover:bg-white/10 group-hover:shadow-2xl group-hover:shadow-purple-500/10 group-hover:-translate-y-1">
+                  <div className="flex gap-4 sm:gap-5">
+                    <div className={`flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br ${project.color} p-0.5`}>
+                      <div className="w-full h-full rounded-[10px] bg-gray-900 flex items-center justify-center overflow-hidden">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={48}
+                          height={48}
+                          className="object-contain rounded-lg"
+                          quality={85}
+                        />
+                      </div>
                     </div>
 
-                    {/* Compétences */}
-                    <div className="pt-2 sm:pt-4 border-t border-white/10">
-                      <p className="text-gray-400 text-xs sm:text-sm group-hover:text-gray-300 transition-colors duration-300">
-                        <span className="font-semibold">Compétences :</span> {project.competencies}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="text-white font-bold text-lg sm:text-xl group-hover:text-purple-300 transition-colors duration-300">
+                          {project.title}
+                        </h3>
+                        <svg className="w-4 h-4 text-gray-500 group-hover:text-white flex-shrink-0 mt-1 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </div>
+
+                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed mt-2 group-hover:text-gray-200 transition-colors duration-300">
+                        {project.description}
                       </p>
-                    </div>
-                  </div>
 
-                  {/* Indicateur de lien */}
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
+                      <div className="flex flex-wrap items-center gap-2 mt-3">
+                        {project.skills.map((skill, skillIndex) => (
+                          <span
+                            key={skillIndex}
+                            className="bg-white/10 text-white px-2.5 py-1 rounded-full text-xs font-medium border border-white/20"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                        <span className="text-gray-500 text-xs ml-1">
+                          {project.competencies}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
