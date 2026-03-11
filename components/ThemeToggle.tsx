@@ -17,7 +17,7 @@ const ThemeToggle: React.FC = () => {
         ref={checkboxRef}
         className="bb8-toggle__checkbox"
         type="checkbox"
-        checked={theme === "light"}
+        checked={theme === "dark"}
         onChange={handleChange}
         aria-label={`Basculer vers le mode ${theme === "dark" ? "clair" : "sombre"}`}
       />
