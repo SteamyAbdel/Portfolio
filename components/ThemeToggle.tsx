@@ -1,43 +1,57 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
 import { useTheme } from "./ThemeProvider";
 
 const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const checkboxRef = useRef<HTMLInputElement>(null);
+
+  const handleChange = () => {
+    toggleTheme();
+  };
 
   return (
-    <motion.button
-      onClick={toggleTheme}
-      className="relative w-16 h-8 bg-gray-600 dark:bg-gray-600 light:bg-gray-300 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-900 dark:focus:ring-offset-gray-900 light:focus:ring-offset-gray-100"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      aria-label={`Basculer vers le mode ${theme === "dark" ? "clair" : "sombre"}`}
-    >
-      <motion.div
-        className="w-6 h-6 bg-white dark:bg-white light:bg-yellow-400 rounded-full shadow-lg flex items-center justify-center"
-        animate={{
-          x: theme === "dark" ? 0 : 32,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 30
-        }}
-      >
-        <motion.span
-          animate={{
-            rotate: theme === "dark" ? 0 : 180,
-            scale: theme === "dark" ? 1 : 0.8
-          }}
-          transition={{ duration: 0.3 }}
-          className="text-xs"
-        >
-          {theme === "dark" ? "🌙" : "☀️"}
-        </motion.span>
-      </motion.div>
-    </motion.button>
+    <label className="bb8-toggle">
+      <input
+        ref={checkboxRef}
+        className="bb8-toggle__checkbox"
+        type="checkbox"
+        checked={theme === "light"}
+        onChange={handleChange}
+        aria-label={`Basculer vers le mode ${theme === "dark" ? "clair" : "sombre"}`}
+      />
+      <div className="bb8-toggle__container">
+        <div className="bb8-toggle__scenery">
+          <div className="bb8-toggle__star" />
+          <div className="bb8-toggle__star" />
+          <div className="bb8-toggle__star" />
+          <div className="bb8-toggle__star" />
+          <div className="bb8-toggle__star" />
+          <div className="bb8-toggle__star" />
+          <div className="bb8-toggle__star" />
+          <div className="tatto-1" />
+          <div className="tatto-2" />
+          <div className="gomrassen" />
+          <div className="hermes" />
+          <div className="chenini" />
+          <div className="bb8-toggle__cloud" />
+          <div className="bb8-toggle__cloud" />
+          <div className="bb8-toggle__cloud" />
+        </div>
+        <div className="bb8">
+          <div className="bb8__head-container">
+            <div className="bb8__antenna" />
+            <div className="bb8__antenna" />
+            <div className="bb8__head" />
+          </div>
+          <div className="bb8__body" />
+        </div>
+        <div className="artificial__hidden">
+          <div className="bb8__shadow" />
+        </div>
+      </div>
+    </label>
   );
 };
 
