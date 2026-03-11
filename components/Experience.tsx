@@ -85,7 +85,7 @@ const Experience: React.FC<{}> = () => {
               >
                 <h3 className="text-gray-300 font-semibold mb-2">HUNYVERS</h3>
                 <p className="text-gray-400 text-sm mb-1">Full-stack Developer · Alternance</p>
-                <p className="text-gray-500 text-xs mb-2">Oct. 2025 – aujourd&apos;hui · Limoges</p>
+                <p className="text-gray-500 text-xs mb-2">Oct. 2025 – Oct. 2026 · Limoges</p>
                 <ul className="text-gray-300 text-sm space-y-1">
                   <li>• Développement full-stack de LaunchLink (React/TypeScript, Node.js/Express, MySQL)</li>
                   <li>• Conception et évolution fonctionnelle produit (gestion d&apos;apps, filtres dynamiques, modules admin/utilisateurs)</li>

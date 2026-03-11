@@ -32,15 +32,9 @@ export const skills = [
 
 export const formations = [
   {
-    period: "2019–2021",
-    title:
-      "Baccalauréat sciences et technologies du management et de la gestion",
-    institution: "Lycée Saint-Jacques de Compostelle",
-  },
-  {
-    period: "2021–2022",
-    title: "L1 Informatique",
-    institution: "Fac de Poitiers",
+    period: "2025–2026",
+    title: "Concepteur Développeur d'Applications (Bac +3)",
+    institution: "ENI école informatique – Niort",
   },
   {
     period: "2022–2025",
@@ -48,8 +42,14 @@ export const formations = [
     institution: "Lycée Aliénor d'Aquitaine",
   },
   {
-    period: "2025–2026",
-    title: "Concepteur Développeur d'Applications (Bac +3)",
-    institution: "ENI école informatique – Niort",
+    period: "2021–2022",
+    title: "L1 Informatique",
+    institution: "Fac de Poitiers",
+  },
+  {
+    period: "2019–2021",
+    title:
+      "Baccalauréat sciences et technologies du management et de la gestion",
+    institution: "Lycée Saint-Jacques de Compostelle",
   },
 ];
