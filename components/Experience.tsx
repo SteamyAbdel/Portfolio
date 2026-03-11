@@ -83,6 +83,31 @@ const Experience: React.FC<{}> = () => {
                   animation: 'fadeInUp 0.6s ease-out 0.8s forwards'
                 }}
               >
+                <h3 className="text-gray-300 font-semibold mb-2">HUNYVERS</h3>
+                <p className="text-gray-400 text-sm mb-1">Full-stack Developer · Alternance</p>
+                <p className="text-gray-500 text-xs mb-2">Oct. 2025 – aujourd&apos;hui · Limoges</p>
+                <ul className="text-gray-300 text-sm space-y-1">
+                  <li>• Développement full-stack de LaunchLink (React/TypeScript, Node.js/Express, MySQL)</li>
+                  <li>• Conception et évolution fonctionnelle produit (gestion d&apos;apps, filtres dynamiques, modules admin/utilisateurs)</li>
+                  <li>• Développement d&apos;une plateforme de simulation de phishing (React/TypeScript, Node.js/Express, PostgreSQL)</li>
+                  <li>• Intégration et synchronisation de services tiers (Zoom Phone, Authentik – API &amp; webhooks)</li>
+                  <li>• Migration et normalisation de données (SQLite → MySQL), scripts d&apos;import robustes</li>
+                  <li>• Sécurisation backend avancée (JWT, gestion des rôles, CORS, rate limiting, reverse proxy)</li>
+                  <li>• Résolution d&apos;incidents critiques en production (401/404/504, erreurs runtime)</li>
+                  <li>• Optimisation des performances (requêtes SQL, cache serveur &amp; client)</li>
+                  <li>• Maintenance et évolution du schéma BDD (migrations, Prisma)</li>
+                  <li>• Développement d&apos;interfaces métier sur Odoo (OWL)</li>
+                  <li>• Containerisation &amp; déploiement (Docker, Nginx, healthchecks, Coolify)</li>
+                </ul>
+              </div>
+              <div 
+                className="bg-white/5 rounded-xl p-4 border border-white/10"
+                style={{
+                  opacity: 0,
+                  transform: 'translateY(50px)',
+                  animation: 'fadeInUp 0.6s ease-out 0.9s forwards'
+                }}
+              >
                 <h3 className="text-gray-300 font-semibold mb-2">Centre Hospitalier Henri-Laborit</h3>
                 <p className="text-gray-400 text-sm mb-2">Stagiaire Développeur Full-Stack</p>
                 <ul className="text-gray-300 text-sm space-y-1">
@@ -97,7 +122,7 @@ const Experience: React.FC<{}> = () => {
                 style={{
                   opacity: 0,
                   transform: 'translateY(50px)',
-                  animation: 'fadeInUp 0.6s ease-out 0.9s forwards'
+                  animation: 'fadeInUp 0.6s ease-out 1.0s forwards'
                 }}
               >
                 <h3 className="text-gray-300 font-semibold mb-2">Agence Blue-Com</h3>
@@ -109,7 +134,7 @@ const Experience: React.FC<{}> = () => {
                 style={{
                   opacity: 0,
                   transform: 'translateY(50px)',
-                  animation: 'fadeInUp 0.6s ease-out 1.0s forwards'
+                  animation: 'fadeInUp 0.6s ease-out 1.1s forwards'
                 }}
               >
                 <h3 className="text-gray-300 font-semibold mb-2">Sogestea</h3>
@@ -126,7 +151,7 @@ const Experience: React.FC<{}> = () => {
                 style={{
                   opacity: 0,
                   transform: 'translateY(50px)',
-                  animation: 'fadeInUp 0.6s ease-out 1.1s forwards'
+                  animation: 'fadeInUp 0.6s ease-out 1.2s forwards'
                 }}
               >
                 <h3 className="text-gray-300 font-semibold mb-2">Lycée Aliénor d&apos;Aquitaine</h3>
@@ -146,7 +171,7 @@ const Experience: React.FC<{}> = () => {
           style={{
             opacity: 0,
             transform: 'translateY(50px)',
-            animation: 'fadeInUp 0.6s ease-out 1.2s forwards'
+            animation: 'fadeInUp 0.6s ease-out 1.4s forwards'
           }}
         >
           <h2 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-3">
@@ -161,7 +186,7 @@ const Experience: React.FC<{}> = () => {
                 style={{
                   opacity: 0,
                   transform: 'translateY(50px)',
-                  animation: `fadeInUp 0.6s ease-out ${1.4 + index * 0.05}s forwards`
+                  animation: `fadeInUp 0.6s ease-out ${1.6 + index * 0.05}s forwards`
                 }}
               >
                 {skill}

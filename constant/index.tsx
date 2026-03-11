@@ -47,4 +47,9 @@ export const formations = [
     title: "BTS SIO Option SLAM",
     institution: "Lycée Aliénor d'Aquitaine",
   },
+  {
+    period: "2025–2026",
+    title: "Concepteur Développeur d'Applications (Bac +3)",
+    institution: "ENI école informatique – Niort",
+  },
 ];
