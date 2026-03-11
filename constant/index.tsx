@@ -16,18 +16,23 @@ export const Social_Icons = [
   },
 ];
 
-export const skills = [
-  "React",
-  "JavaScript",
-  "PHP",
-  "Android",
-  "Docker",
-  "Python",
-  "MySQL",
-  "Bootstrap",
-  "Java",
-  "PostgreSQL",
-  "NextJS",
+export const skillCategories = [
+  {
+    category: "Frontend",
+    skills: ["React", "TypeScript", "JavaScript", "Next.js", "Tailwind CSS", "Bootstrap"],
+  },
+  {
+    category: "Backend",
+    skills: ["Node.js", "Express", "PHP", "Symfony", "Python", "Java"],
+  },
+  {
+    category: "Base de données",
+    skills: ["MySQL", "PostgreSQL", "Prisma", "SQLite"],
+  },
+  {
+    category: "DevOps & Outils",
+    skills: ["Docker", "Nginx", "Git", "Coolify", "Linux"],
+  },
 ];
 
 export const formations = [

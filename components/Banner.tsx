@@ -7,7 +7,7 @@ import Bubbletext from "./Bubbletext";
 export default function Banner() {
   return (
     <div 
-      className="flex flex-row items-center justify-center px-4 md:px-20 mt-[100px] md:mt-[150px] z-[20] min-h-screen"
+      className="flex flex-row items-center justify-center px-4 md:px-20 mt-[40px] md:mt-[60px] z-[20] pb-8"
       style={{
         opacity: 0,
         animation: 'fadeInUp 0.8s ease-out 0.2s forwards'

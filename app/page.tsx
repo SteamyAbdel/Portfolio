@@ -1,13 +1,11 @@
 import React from "react";
 import ParallaxElement from "@/components/ParallaxElement";
-import LazySection from "@/components/LazySection";
 import Banner from "@/components/Banner";
 import Experience from "@/components/Experience";
 import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
 import Certif from "@/components/Certif";
 import Contact from "@/components/Contact";
-import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 
 export default function Home() {
@@ -38,9 +36,6 @@ export default function Home() {
           </ParallaxElement>
           <ParallaxElement speed={0.3} direction="up">
             <Certif />
-          </ParallaxElement>
-          <ParallaxElement speed={0.2} direction="down">
-            <Testimonials />
           </ParallaxElement>
           <ParallaxElement speed={0.4} direction="up">
             <Contact />

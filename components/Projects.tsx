@@ -115,7 +115,7 @@ const Projects: React.FC = () => {
       id="projects"
       className="px-4 sm:px-6 md:px-8 lg:px-12 py-16 sm:py-20 md:py-24"
     >
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-6xl">
         {/* Titre principal */}
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6">

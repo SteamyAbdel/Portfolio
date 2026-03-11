@@ -7,9 +7,9 @@ export default function Certif() {
   return (
     <section
       id="certifications"
-      className="flex flex-col items-center justify-center h-full relative overflow-hidden pt-[35px] mb-12"
+      className="flex flex-col items-center justify-center h-full relative overflow-hidden px-4 md:px-10 py-16"
     >
-      <div className="max-w-[900px] w-full">
+      <div className="container mx-auto max-w-6xl w-full">
         <h1 className="text-5xl font-bold text-white mb-8 text-center">
           CERTIFICATIONS
         </h1>

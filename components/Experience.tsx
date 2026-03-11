@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { formations, skills } from "@/constant";
+import { formations, skillCategories } from "@/constant";
 
 const Experience: React.FC<{}> = () => {
   return (
@@ -174,22 +174,32 @@ const Experience: React.FC<{}> = () => {
             animation: 'fadeInUp 0.6s ease-out 1.4s forwards'
           }}
         >
-          <h2 className="text-2xl font-bold text-white mb-6 text-center flex items-center justify-center gap-3">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center flex items-center justify-center gap-3">
             <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-sm">⚡</span>
             Compétences Techniques
           </h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            {skills.map((skill, index) => (
-              <div 
-                key={skill}
-                className="bg-white/10 hover:bg-white/20 cursor-pointer rounded-full text-white py-2 px-4 border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {skillCategories.map((cat, catIndex) => (
+              <div
+                key={cat.category}
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10"
                 style={{
                   opacity: 0,
-                  transform: 'translateY(50px)',
-                  animation: `fadeInUp 0.6s ease-out ${1.6 + index * 0.05}s forwards`
+                  transform: 'translateY(30px)',
+                  animation: `fadeInUp 0.5s ease-out ${1.5 + catIndex * 0.1}s forwards`
                 }}
               >
-                {skill}
+                <h3 className="text-white font-semibold text-sm mb-3">{cat.category}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="bg-white/10 hover:bg-white/20 rounded-full text-gray-300 text-xs py-1.5 px-3 border border-white/10 hover:border-white/30 transition-all duration-300"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
