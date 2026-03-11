@@ -13,7 +13,7 @@ const Experience: React.FC<{}> = () => {
         animation: 'fadeInUp 0.8s ease-out forwards'
       }}
     >
-      <div className="container mx-auto p-4 max-w-6xl">
+      <div className="container mx-auto p-4">
         <h1 
           className="text-4xl md:text-5xl font-bold text-white mb-8 text-center"
           style={{

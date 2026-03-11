@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
         animation: 'fadeInUp 0.8s ease-out forwards'
       }}
     >
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto">
         <h1 
           className="text-4xl md:text-5xl font-bold text-white mb-4 text-center"
           style={{
