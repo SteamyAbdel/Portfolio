@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Image Docker minimale (Coolify / self-host)
+  output: 'standalone',
+
   // Optimisations de performance
   experimental: {
     optimizePackageImports: ['framer-motion', 'react-intersection-observer'],
