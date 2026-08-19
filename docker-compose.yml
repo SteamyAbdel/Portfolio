@@ -4,14 +4,14 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        NEXT_PUBLIC_SITE_URL: ${SERVICE_FQDN_PORTFOLIO}
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://portfolio-abdelali.com}
     restart: unless-stopped
     environment:
-      SERVICE_FQDN_PORTFOLIO_3000: ${SERVICE_FQDN_PORTFOLIO_3000}
+      SERVICE_FQDN_PORTFOLIO_3000: ${SERVICE_FQDN_PORTFOLIO_3000:-}
       NODE_ENV: production
       PORT: "3000"
       HOSTNAME: 0.0.0.0
-      NEXT_PUBLIC_SITE_URL: ${SERVICE_FQDN_PORTFOLIO}
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://portfolio-abdelali.com}
     expose:
       - "3000"
     healthcheck:

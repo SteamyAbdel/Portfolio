@@ -12,7 +12,25 @@ import PerformanceMonitor from "@/components/PerformanceMonitor";
 import Loader from "@/components/Loader";
 
 const inter = Inter({ subsets: ["latin"] });
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-abdelali.com/";
+
+function resolveSiteUrl() {
+  const fallback = "https://portfolio-abdelali.com/";
+  const raw = (process.env.NEXT_PUBLIC_SITE_URL || "").trim();
+  if (!raw) return fallback;
+
+  const first = raw.split(",")[0].trim();
+  const withProtocol = /^https?:\/\//i.test(first) ? first : `https://${first}`;
+
+  try {
+    const url = new URL(withProtocol);
+    if (!url.hostname) return fallback;
+    return `${url.origin}/`;
+  } catch {
+    return fallback;
+  }
+}
+
+const siteUrl = resolveSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

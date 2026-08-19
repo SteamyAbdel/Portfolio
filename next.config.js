@@ -7,6 +7,9 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion', 'react-intersection-observer'],
     serverComponentsExternalPackages: ['sharp'],
+    // Un seul worker : évite les OOM pendant le build Coolify
+    cpus: 1,
+    workerThreads: false,
   },
   
   // Compression
